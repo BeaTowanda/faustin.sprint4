@@ -48,10 +48,10 @@
                 </ul>            
             </div>          
          
-            <form action="/" method="GET">
+            <form action="/product/storeAlta" method="POST" enctype = "multipart/form-data">
                 <div class="descriptionProduct">
                     <p><label id="" for ="nombreProducto">NOMBRE DEL PRODUCTO</label>
-                    <input placeholder="" type="text" minlength="10" maxlength="45" name="nombreProducto" id="user1" required "[[A-Za-z ]{1,6}"></p>
+                    <input placeholder="" type="" minlength="10" maxlength="45" name="nombreProducto" id="user1" ></p>
                     <br/>
                     <p><label id="" for ="descripcionProducto">DESCRIPCION PRINCIPAL </label>
                         <input placeholder="" type="text" minlength="10" maxlength="150" name="description" id="user1" ></p>  
@@ -62,8 +62,20 @@
                     <p><label id="" for ="descripcionProducto">DESCRIPCION detalle 2 </label>
                         <input placeholder="" type="text" minlength="10" maxlength="150" name="description3" id="user1" ></p>  
                     <br/>           
-                    <label id="" for="file">Imagen Del Producto</label>
-                    <input type="file" name="archivo" id="archivo" accept=".png, .jpeg, .jpg, .gif" sytle="display:none">        
+                    <label id="" for="file">Imagen Principal del Producto</label>
+                    <input type="file" name="imagenPPAL" id="archivo" accept=".png, .jpeg, .jpg, .gif" sytle="display:none"> 
+                    <br/>  
+                    <label id="" for="file">Imagen DORSO del Producto</label>
+                    <input type="file" name="imagenDORSO" id="archivo" accept=".png, .jpeg, .jpg, .gif" sytle="display:none"> 
+                    <br/>
+                    <label id="" for="file">Imagen DETALLE 1 </label>
+                    <input type="file" name="imagenDetalle1" id="archivo" accept=".png, .jpeg, .jpg, .gif" sytle="display:none">
+                    <br/> 
+                    <label id="" for="file">Imagen DETALLE 2</label>
+                    <input type="file" name="imagenDetalle2" id="archivo" accept=".png, .jpeg, .jpg, .gif" sytle="display:none">
+                    <br/> 
+                    <label id="" for="file">Imagen DETALLE 3</label>
+                    <input type="file" name="imagenDetalle3" id="archivo" accept=".png, .jpeg, .jpg, .gif" sytle="display:none">     
                 </div>
                 <div>                  
                     <div class="licencias">
@@ -95,7 +107,7 @@
                         <label for=""><img id="colorList" src="/images/etiqueta11Beige1.png"></label>          
                         <input type="checkbox" id="azul" name="color" value="azul">
                         <label for=""><img id="colorList" src="/images/etiqueta11Azul.png"></label>          
-                        <input type="checkbox" id="aqua" name="color" value="verde"
+                        <input type="checkbox" id="aqua" name="color" value="verde">
                         <label for=""><img id="colorList" src="/images/etiqueta11Verde.png"></label>          
                         <input type="checkbox" id ="verde" name="color" value="guinda">
                         <label for=""><img id="colorList" src="/images/etiqueta11Guinda.png"></label>

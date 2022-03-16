@@ -40,7 +40,12 @@
         "colection":"Otoño",
         "color":"GUINDA",
         "tipo": "cartera",
-        "imagen":"bandoleraVerdeSinFondo.png" 
+        "imagenPPAL":"bandoleraVerdeSinFondo.png",
+        "imagenDORSO":"ver",
+        "imagenDetalle1":"ver",
+        "imagenDetalle2":"ver",
+        "imagenDetalle3":"ver"
+
 
     } 
 ]

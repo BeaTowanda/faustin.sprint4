@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+/*ya instalé el multer ver en productRouter*/
+
 
 const indexRouter = require('./routes/index');
 const productRouter = require("./routes/product");
