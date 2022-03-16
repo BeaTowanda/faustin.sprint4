@@ -1,0 +1,49 @@
+
+[
+    {
+        "id": 1,
+        "name": "Bolso Briggit",
+        "description": "Cuero Engrasado",
+        "description2":"Manija Ajustable",
+        "description3":"Sobre Relieve ",
+        "price": 25000,
+        "descuento":10,
+        "anio":2021,
+        "colection":"Invierno",
+        "color":"Bluer",
+        "tipo":"bolsos",
+        "imagen":"ver este campo"
+    }, 
+    {
+        "id": 2,
+        "name": "BANDOLERA AZUL GUCCI",
+        "description": "Cuero PIEl",
+        "description2":"Relieve ",
+        "description3":"Sobre Relieve ",
+        "price": 18000,
+        "descuento":5,
+        "anio":2020,
+        "colection":"Verano",
+        "color":"Azul",
+        "tipo": "bandolera",
+        "imagen":"ver este campo"
+    },
+    {
+        "id": 3,
+        "name": "CARTERA CEREZA ",
+        "description": "Cuero SOFT NATURAL ",
+        "description2":"Varios bolsillos ",
+        "description3":"Herrajes de Calidad ",
+        "price": 25000,
+        "descuento":10,
+        "anio":2022,
+        "colection":"Otoño",
+        "color":"GUINDA",
+        "tipo": "cartera",
+        "imagen":"bandoleraVerdeSinFondo.png" 
+
+    } 
+]
+
+
+    
