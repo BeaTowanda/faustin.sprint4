@@ -67,6 +67,10 @@ div .producto {
     border-radius: 30%;
     position:left;
 }
+#bandoleraCereza {
+    width:16rem;
+    height: 12rem;
+}
 div.cajaGrande{
     display: flex;
     flex-wrap: wrap;

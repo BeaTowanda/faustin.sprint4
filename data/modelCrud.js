@@ -1,22 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-/*const jsonTable = require('../data/productos');*/
 
-let tableName = fs.readFileSync(path.join(__dirname, "../data/productos.json"), "utf-8")
-
-
-let model = function(tableName) {
+let model = function (tableName){
     return {
-        /*filePath: path.join(__dirname, '../data/' + tableName + '.json'),*/
+        filePath: path.join(__dirname, '../data/' + tableName + '.json'),        
         readFile() {
-           /*let fileContents = fs.readFileSync(this.filePath, 'utf8');*/
-        
-           /* if(fileContents) {*/
-           if (tableName){
-                /*return JSON.parse(fileContents);*/
-                return JSON.parse(tableName)
-            }
-        
+            let fileContents = fs.readFileSync(this.filePath, 'utf8');                   
+            if(fileContents) {
+                return JSON.parse(fileContents);
+            }         
             return [];
         },
         writeFile(contents) {
@@ -25,12 +17,10 @@ let model = function(tableName) {
         },
         nextId() {
             let rows = this.readFile();
-            let lastRow = rows.pop();
-
+            let lastRow = rows.pop(); 
             if (lastRow) {
                 return ++lastRow.id;
-            }
-
+            } 
             return 1;
         },
         all() {
@@ -40,13 +30,23 @@ let model = function(tableName) {
             let rows = this.readFile();
             return rows.find(row => row.id == id)
         },
+        findSimilares(id){
+            let rows = this.readFile();            
+            if (rows.length !== 0){                
+            let row = this.find(id);
+            let rowType= row.tipo;          
+            let array = rows.filter(function(elem){               
+                return (elem.tipo == rowType) && (elem.id !== row.id)                  
+            }  )
+            
+           return array
+           }
+        } ,           
         create(row) {
             let rows = this.readFile();
             row.id = this.nextId();
-            rows.push(row);
-
-            this.writeFile(rows);
-
+            rows.push(row); 
+            this.writeFile(rows); 
             return row.id;
         },
         update(row) {
@@ -73,3 +73,4 @@ let model = function(tableName) {
 }
 
 module.exports = model;
+

@@ -1,19 +1,23 @@
 
 const fs = require('fs');
 const path = require('path');
-const model = require('../data/model');
+const { urlencoded } = require("express")
+const modelCrud = require('../data/modelCrud');
 
-let tableName = fs.readFileSync(path.join(__dirname, "../data/productos.json"), "utf-8")
+/*let tableName = fs.readFileSync(path.join(__dirname, "../data/productos.json"), "utf-8") */
 
-const productModel = model('product');
+const productModel = modelCrud("productos");
+ 
 
-const { urlencoded } = require("express");
 const controller = {
     detail: (req, res) => {
-        let id=req.query.id;
-        let producto =productModel.find(id);
-        /*let producto = model(jsontable).find(id);*/
-        res.render("detallProdNuevo",{producto})
+       /*busco producto */
+        let id=req.params.id;
+        let producto = productModel.find(id);  
+        /*busco relacionados*/         
+        let filtrados = productModel.findSimilares(id); 
+        console.log("en controller filtrados es = "+ filtrados)        
+        res.render("detallProdNuevo",{producto,filtrados});
     },
     login: (req,res) =>{
         res.render("login")
@@ -35,8 +39,7 @@ const controller = {
     },
     ofertas: (req,res) => {
         res.render("ofertas")
-    },
-    
+    },     
 };
 
 module.exports = controller;

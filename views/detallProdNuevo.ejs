@@ -46,7 +46,7 @@
        <!--- <header> -->
         <main>
             <div class="altaProductLogo"> 
-                <h3>CARTERA PRUME P&P</h3>
+                <h3><%= producto.name %></h3>
                 <ul>       
                 <!--<li><img id="licenciaLogo" src="img/superman.jpg"></li> -->
                 <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
@@ -57,9 +57,10 @@
                 <div class="descriptionProduct">
                     <div class="divDescriptionText">
                     <ul>
-                    <li>Cartera de Mano Nueva Colección / </li>            
-                    <li>Cuero Graneado con Isologo en relieve</li>
-                    <li>Manija de Cinta Estampada DESMONTABLE</li>         
+                    <li><%= producto.name %> / </li>            
+                    <li><%=producto.description %></li>
+                    <li><%=producto.description2 %></li>
+                    <li><%= producto.description3 %></li>        
                     <li>STOCK DISPONIBLE</li>          
                     <li>Varios COLORES </li> 
                     </ul>
@@ -67,18 +68,18 @@
                     <div class="divGrandePrincipal">       
                     <div class="divPrincipal">  
                         <!--<img id="principal" src="/images/cartera 2SinFOndo.png">  -->
-                        <img id="principal" src =" <%=producto.imagen %> ">         
-                        <img id="espalda" src="/images/cartera 1SinFondo.png">  
+                        <img id="principal" src ="/images/<%=producto.imagenPPAL %> ">         
+                        <img id="espalda" src="/images/<%= producto.imagenDORSO %>">  
                                   
                     </div>
                     <div class="divPrincipalPrecio">
-                        <p>PRECIO UNITARIO = $ 28.000</p>
-                        <p>SALE : $21.000</p>
+                        <p>PRECIO UNITARIO = $<%= producto.price %></p>
+                        <p>SALE :<%= producto.descuento %> %</p>
                     </div>
                     <div class="divSecundarias">              
-                        <img id="secundarias" src="/images/cartera 4.jpg">
-                        <img id="secundarias" src="/images/cartera 3.jpg">
-                        <img id="secundariasManga" src="/images/cartera 4.jpg">
+                        <img id="secundarias" src="/images/<%= producto.imagenDetalle2 %>">
+                        <img id="secundarias" src="/images/<%= producto.imagenDetalle2 %>">
+                        <img id="secundariasManga" src="/images/<%= producto.imagenDetalle3 %>">
                     </div> 
                 </div>                      
                 </div>
@@ -87,18 +88,23 @@
                 <div class="productsRelacionados">
                     <h2>PRODUCTOS</h2>
                     <h2>Relacionados</h2>
+                <!-- falta la validción de largo tabla-->
+                    <% for (i=0 ; i< 3  ; i++){ %>
                     <article>
-                    <img id="productsRelImagen" src="/images/dymsSinFondo.png">            
-                    <span id="flecha">Ver<a href="/detalleDeProducto"><i class="fas fa-arrow-alt-circle-right"></i></a></span>
+                    <img id="productsRelImagen" src="/images/<%= filtrados[i].imagenPPAL %>">            
+                    <span id="flecha">Ver<a href="/product/detail/<%= filtrados[i].id %>"><i class="fas fa-arrow-alt-circle-right"></i></a></span>
                     </article>
-                    <article>
+                    <% } %>
+               
+
+                   <!--- <article>
                     <img id="productsRelImagen" src="/images/gucci.1.SinFondo.png"> 
                     <span id="flecha">Ver<a href="/detalleDeProducto"><i class="fas fa-arrow-alt-circle-right"></i></a></span>
                     </article>
                     <article>
                     <img id="productsRelImagen" src="/images/carteraLouisRosa1.SinFondo.png">
                     <span id="flecha">Ver<a href="/detalleDeProducto"><i class="fas fa-arrow-alt-circle-right"></i></a></span>
-                    </article>
+                    </article>-->
                 </div>    
                 <div class="productValores"> 
                 <form action="/" method="GET">           
