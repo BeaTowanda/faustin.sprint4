@@ -187,7 +187,25 @@
     "imagenDetalle1": "carteraVerdeGlipSinfondo.detail2.png",
     "imagenDetalle2": "carteraVerdeGlipSinFondo.Detail1.png",
     "imagenDetalle3": "carteraVerdeGipSinFondo.Detail2.png"
-   }
-
+   },
+   {
+    "id": 11,
+    "name": "MOCHILA GUCCI TEXTURADA ",
+    "description": "Cuero CHAROL con Bajo Relieve  ",
+    "description2": "Interior con 3 separaciones ",
+    "description3": "Extra Light ",
+    "price": 35000,
+    "descuento": 5,
+    "anio": 2021,
+    "colection": "verano",
+    "color": "roja",
+    "tipo": "mochila",
+    "cantidad": 20,
+    "imagenPPAL": "mochilaGucciSinFondo.png",
+    "imagenDORSO": "mochilaGucciSinFondo.back.png",
+    "imagenDetalle1": "mochilaGucciSinFondo.detail2.png",
+    "imagenDetalle2": "mochilaGucciSinFondo.Detail1.png",
+    "imagenDetalle3": "mochilaGucciSinFondo.detail2.png"
+   } 
 
 ]

@@ -37,14 +37,28 @@
     </header>-->
     <%- include('partials/header') %>
     <div class="cuerpoLogin">
+        <section class="errores">
+            <% if(typeof errors!='undefined'){ %>
+                <ul>
+                  <% for (let i=0; i < errors.length; i++) { %>
+                      <li style="color: red;"><%= errors[i].msg %> </li>
+                  <% } %>
+                </ul>
+            <% } %>
+        </section>
+        <form action="/users/processLogin" method="POST">
+        
         <div class="paginaLogin">
+            <!-- FALTA ARREGLAR QUE ESTÁN OTRA VEZ SEPARADOS.. VER OTRO DÍA-->
             <div class="etiquetasDeLogin">
                 <span class="usuario">Nombre de usuari@</span>
                 <span class="password">Contraseña</span>
             </div>
             <div class="botonesDeLogin">
-                <input type="text" name="usuario" id="usuario" minlength="5" data-error="Dato no valido" data-success="Correcto" class="barraDeUsuario" required>
-                <input type="password" name="password" id="password" class="barraPassword",required>
+                <input type="text" name="usuario" id="usuario"  class="barraDeUsuario" >
+                <input type="password" name="contraseña" id="password" class="barraPassword">
+                <label for="recordame" class="usuario">Recordame</label>
+                <input type="checkbox" name="recordame" >
             </div>
         </div>
         <div class="button">
@@ -52,7 +66,7 @@
                 <span class="iniciarSesion">Iniciar Sesion</span>
             </button>
         </div>
-        <div class="cuentaYContraseña">
+        <div class="cuentaYContraseña">                     
             <p>
                 <a href= "#" class="linkOlvidasteContraseña">¿Olvidaste tu contraseña?</a>
             </p>
@@ -60,7 +74,8 @@
                 <a href= "/users/register" class="linkCrearCuenta">Crea tu cuenta</a>
             </p>
         </div>
-    </div>   
+    </div> 
+</form>  
 
     <footer>
         <%- include('partials/footer') %>
