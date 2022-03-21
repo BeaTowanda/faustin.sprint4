@@ -21,12 +21,7 @@ const controller = {
         let filtrados = productModel.findSimilares(id);          
         res.render("detallProdNuevo",{producto,filtrados});
     },
-    login: (req,res) =>{
-        res.render("login")
-    },
-    register: (req,res) =>{
-        res.render("formularioRegistro")
-    },
+   
     carrito: (req,res) => {
         res.render("carritoDeCompras")
     },

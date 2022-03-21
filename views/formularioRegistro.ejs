@@ -35,27 +35,35 @@
 
 
     <section class="formularioParaRegistro">
-        <form action="/formularioRegistro" method="POST">
+        <form action="users/register" method="POST" enctype = "multipart/form-data">
             <p><label id="" for ="usuario" class="todosLosTitulos">Usuario</label>
-                <input class="todosLosBotones" placeholder="" type="text" minlength="10" maxlength="45" name="usuario"  required "[[A-Za-z ]{1,6}"></p>
+                <input class="todosLosBotones" placeholder="" type="text"  name="usuario" ></p>
             <!--<div class="contenedorTodosLosTitulos">-->
                 <p><label id="" for ="nombre" class="todosLosTitulos">Nombre</label>
-                <input class="todosLosBotones" placeholder="" type="text" minlength="25" maxlength="70" name="nombre"  required "[[A-Za-z ]{1,6}"></p>    
+                <input class="todosLosBotones" placeholder="" type="text"  name="nombre" ></p>    
                 
                 <p><label id="" for ="apellido" class="todosLosTitulos">Apellido</label>
-                <input class="todosLosBotones" placeholder="" type="text" minlength="10" maxlength="45" name="Apellido"  required "[[A-Za-z ]{1,6}"></p>    
+                <input class="todosLosBotones" placeholder="" type="text"  name="Apellido" ></p>    
                 
                 <p><label id="" for ="contraseña" class="todosLosTitulos">Contraseña</label>
-                <input class="todosLosBotones" placeholder="" type="text" minlength="10" maxlength="45" name="contraseña"  required "[[A-Za-z ]{1,6}"></p>
+                <input class="todosLosBotones" placeholder="" type="text"  name="contraseña"></p>
                 
                 <p><label id="" for ="contraseñaConfirma" class="todosLosTitulos">Confirmación de Contraseña</label>
-                <input class="todosLosBotones" placeholder="" type="text" minlength="10" maxlength="45" name="contraseñaConfirma"  required "[[A-Za-z ]{1,6}"></p>
+                <input class="todosLosBotones" placeholder="" type="text"  name="contraseñaConfirma" ></p>
                 
                 <p><label id="" for ="email" class="todosLosTitulos">Correo Electrónico</label>
-                <input class="todosLosBotones" placeholder="" type="text" minlength="10" maxlength="45" name="email"  required "[[A-Za-z ]{1,6}"></p>
+                <input class="todosLosBotones" placeholder="" type="text" " name="mail" ></p>
                 
                 <p><label id="" for ="emailConfirma" class="todosLosTitulos">Confirmación de Correo Electrónico</label>
-                <input class="todosLosBotones" placeholder="" type="text" minlength="10" maxlength="45" name="emailConfirma"  required "[[A-Za-z ]{1,6}"></p>
+                <input class="todosLosBotones" placeholder="" type="text"  name="emailConfirma" ></p>
+
+                <p><label id="" for="file">Ingresá tu AVATAR</label>
+                    <input class="todosLosBotones" type="file" name="avatar" id="archivo" accept=".png, .jpeg, .jpg, .gif" sytle="display:none"> </p>
+                
+                <p><label id="" for="date">Fecha de Nacimiento</label>
+                    <input class="todosLosBotones" type="date" name="fechaNacimiento" id="archivo"> </p>
+
+
                
             </div>
            <!--- <div class="contenedorTodosLosBotones">

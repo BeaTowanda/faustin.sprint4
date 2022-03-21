@@ -1,0 +1,50 @@
+[
+    {
+     "id": 1,
+     "usuario": "Jaimito",
+     "primerNombre": "Jaime Ernesto ",
+     "apellido": "Strozersy",
+     "contraseña": "je2525m",
+     "mail": "jaimito.stk@gmail.com",
+     "avatar": "ver",
+     "fechaAlta":20220101,
+     "fechaNacimiento": 19800711
+     
+    },
+    {
+    "id": 1,
+    "usuario": "Jaimito",
+    "primerNombre": "Jaime Ernesto ",
+    "apellido": "Strozersy",
+    "contraseña": "je2525m",
+    "mail": "jaimito.stk@gmail.com",
+    "avatar": "ver",
+    "fechaAlta":20220101,
+    "fechaNacimiento": 19800711
+        
+    },
+    {
+    "id": 1,
+    "usuario": "Jaimito",
+    "primerNombre": "Jaime Ernesto ",
+    "apellido": "Strozersy",
+    "contraseña": "je2525m",
+    "mail": "jaimito.stk@gmail.com",
+    "avatar": "ver",
+    "fechaAlta":20220101,
+    "fechaNacimiento": 19800711
+        
+    },
+    {
+    "id": 1,
+    "usuario": "Jaimito",
+    "primerNombre": "Jaime Ernesto ",
+    "apellido": "Strozersy",
+    "contraseña": "je2525m",
+    "mail": "jaimito.stk@gmail.com",
+     "avatar": "ver",
+    "fechaAlta":20220101,
+    "fechaNacimiento": 19800711
+        
+    }
+]
