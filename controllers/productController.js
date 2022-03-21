@@ -16,9 +16,13 @@ const controller = {
     detail: (req, res) => {
        /*busco producto */
         let id=req.params.id;
+        console.log(id)
         let producto = productModel.find(id);  
+        console.log(producto.name)
+        console.log(producto.id)
         /*busco relacionados*/         
-        let filtrados = productModel.findSimilares(id);          
+        let filtrados = productModel.findSimilares(id);
+        console.log(filtrados)          
         res.render("detallProdNuevo",{producto,filtrados});
     },
    

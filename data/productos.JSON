@@ -37,7 +37,26 @@
   "imagenDetalle3": "bandoleraBeigeSinFondo.Detail2xxx.jpg"
  },
  {
-  "id": 3,
+    "id": 3,
+    "name": "CARTERA VERSACE STILE ",
+    "description": "Cuero ENCERADO full  ",
+    "description2": "MANIJA con herrajes ",
+    "description3": "bolsillos múltiples ",
+    "price": 31000,
+    "descuento": 15,
+    "anio": 2022,
+    "colection": "invierno",
+    "color": "negro",
+    "tipo": "cartera",
+    "cantidad": 15,
+    "imagenPPAL": "carteraVersaceNegraSinFondo.png",
+    "imagenDORSO": "carteraVersaceNegraSinFondo.back.png",
+    "imagenDetalle1": "carteraVersaceNegra.detail2.png",
+    "imagenDetalle2": "carteraVersaceNegra.detail1.png",
+    "imagenDetalle3": "carteraVersaceNegra.detail2.png"
+   },
+ {
+  "id": 4,
   "name": "BANDOLERA DE MANO NUEVA COLECCION ",
   "description": "Cuero GRANEADO ",
   "description2": "MANIJA desmontable ",
@@ -56,7 +75,7 @@
   "imagenDetalle3": "cartera 4.jpg"
  },
  {
-  "id": 4,
+  "id": 5,
   "name": "MOCHILA VERDE START YOUNG",
   "description": "Cuero vaca ENGRASADO ",
   "description2": "Bolsillos múltiples ",
@@ -75,7 +94,7 @@
   "imagenDetalle3": "mochilaGVerdeSinFondo.detail2.jpg"
  },
  {
-  "id": 5,
+  "id": 6,
   "name": "BANDOLERA EXCLUSIVE  ",
   "description": "Cuero ENCERADO TRUGAL ",
   "description2": "MANIJA desmontable ",
@@ -94,7 +113,7 @@
   "imagenDetalle3": "bandoleraRojaSinFondo.detail1.png"
  },
  {
-  "id": 6,
+  "id": 7,
   "name": "BANDOLERA GUCCI ",
   "description": "Cuero liso Argentino ",
   "description2": "Manija Desmontable ",
@@ -113,7 +132,7 @@
   "imagenDetalle3": "bandoleraAzulSinFondo.detail1.png"
  },
  {
-  "id": 7,
+  "id": 8,
   "name": "BANDOLERA BIG MAN  ",
   "description": "Cuero Sintético PLUS ",
   "description2": "Carry Notebook ",
@@ -132,7 +151,7 @@
   "imagenDetalle3": "morralHombreSinFondo.detail1.png"
  },
  {
-  "id": 8,
+  "id": 9,
   "name": "MORRAL MIN-MAX HOMBRE ",
   "description": "Cuero PIEL SOFT  ",
   "description2": "MANIJA desmontable ",
@@ -149,6 +168,26 @@
   "imagenDetalle1": "morralHombreSinFondo.back.png",
   "imagenDetalle2": "morralHombreSinFondo.Detail1.png",
   "imagenDetalle3": "morralHombreSInFondo.Detail2.png"
- }
+ },
+ {
+    "id": 10,
+    "name": "CARTERA GLIP DUO FASHION ",
+    "description": "Cuero CUERO y CHAROL  ",
+    "description2": "Con billetera en juego ",
+    "description3": "Detalles en Charol ",
+    "price": 55000,
+    "descuento": 5,
+    "anio": 2022,
+    "colection": "primavera",
+    "color": "verde",
+    "tipo": "cartera",
+    "cantidad": 20,
+    "imagenPPAL": "carteraVerdeGlipSinFondo.png",
+    "imagenDORSO": "carteraVerdeGlipSinfondo.back.png",
+    "imagenDetalle1": "carteraVerdeGlipSinfondo.detail2.png",
+    "imagenDetalle2": "carteraVerdeGlipSinFondo.Detail1.png",
+    "imagenDetalle3": "carteraVerdeGipSinFondo.Detail2.png"
+   }
+
 
 ]
