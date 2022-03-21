@@ -68,9 +68,13 @@ div.imgs{
     font-size:2rem;
     padding:0.5rem 0.5rem 0.5rem 0.5rem;
 }
-#saleLogo{
+#saleLogo {
     width: 3rem;
     height: 2rem;
+}
+#borrarIcon {
+    width: 4rem;
+    height: 3rem;
 }
 
 .imgs button:hover{     

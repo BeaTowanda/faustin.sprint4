@@ -30,6 +30,12 @@ let model = function (tableName){
             let rows = this.readFile();
             return rows.find(row => row.id == id)
         },
+        findName(nombre) {
+            let rows = this.readFile();
+            let product = rows.find(function(elem){
+                return elem.name == nombre})     
+            return product;
+        },
         findSimilares(id){
             let rows = this.readFile();            
             if (rows.length !== 0){                
