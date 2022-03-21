@@ -5,16 +5,15 @@
     align-items: flex-end;
     top: 0px;
     /*margin-right: 10px;*/
-    margin-right: 1rem;
-
-
-    
+    margin-right: 1rem;    
+}
+.errores{
+    margin-left:3.5rem;
 }
 
 .contenedorTodosLosBotones {
     display: inline-flex;
     flex-direction: column;
-
 }
 
 .crearCuenta {

@@ -32,10 +32,19 @@
     <header>
         <%- include('partials/header') %>
     </header>
-
+    <section class="errores">
+        <% if(typeof errors!='undefined'){ %>
+            <ul>
+              <% for (let i=0; i < errors.length; i++) { %>
+                  <li style="color: red;"><%= errors[i].msg %> </li>
+              <% } %>
+            </ul>
+        <% } %>
+    </section>
 
     <section class="formularioParaRegistro">
-        <form action="users/register" method="POST" enctype = "multipart/form-data">
+        
+        <form action="/users/register" method="POST" enctype = "multipart/form-data">
             <p><label id="" for ="usuario" class="todosLosTitulos">Usuario</label>
                 <input class="todosLosBotones" placeholder="" type="text"  name="usuario" ></p>
             <!--<div class="contenedorTodosLosTitulos">-->

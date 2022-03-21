@@ -88,10 +88,10 @@
   "tipo": "bandolera",
   "cantidad": 20,
   "imagenPPAL": "bandoleraRojaSinFondo.png",
-  "imagenDORSO": "cartera 1SinFondo.png",
-  "imagenDetalle1": "cartera 4.jpg",
-  "imagenDetalle2": "cartera 3.jpg",
-  "imagenDetalle3": "cartera 4.jpg"
+  "imagenDORSO": "bandoleraRojaSinFondo.back.png",
+  "imagenDetalle1": "bandoleraRojaSinFondo.detail1.png",
+  "imagenDetalle2": "bandoleraRojaSinFondo.detail2.png",
+  "imagenDetalle3": "bandoleraRojaSinFondo.detail1.png"
  },
  {
   "id": 6,
@@ -107,10 +107,10 @@
   "tipo": "bandolera",
   "cantidad": 20,
   "imagenPPAL": "bandoleraAzulSinFondo.png",
-  "imagenDORSO": "cartera 1SinFondo.png",
-  "imagenDetalle1": "cartera 4.jpg",
-  "imagenDetalle2": "cartera 3.jpg",
-  "imagenDetalle3": "cartera 4.jpg"
+  "imagenDORSO": "bandoleraAzulSinFondo.back.png",
+  "imagenDetalle1": "bandoleraAzulSinfondo.detail1.png",
+  "imagenDetalle2": "bandoleraAzulSinfondo.detail2.png",
+  "imagenDetalle3": "bandoleraAzulSinFondo.detail1.png"
  },
  {
   "id": 7,
@@ -125,11 +125,11 @@
   "color": "gris",
   "tipo": "bandolera",
   "cantidad": 20,
-  "imagenPPAL": "bandoleraHOmbre1SinFondo.png",
-  "imagenDORSO": "cartera 1SinFondo.png",
-  "imagenDetalle1": "cartera 4.jpg",
-  "imagenDetalle2": "cartera 3.jpg",
-  "imagenDetalle3": "cartera 4.jpg"
+  "imagenPPAL": "morralHombreSinFondo.png",
+  "imagenDORSO": "morralHombreSinFondo.back.png",
+  "imagenDetalle1": "morralHombreSinFondo.detail1.png",
+  "imagenDetalle2": "morralHombreSinFondo.detail2.png",
+  "imagenDetalle3": "morralHombreSinFondo.detail1.png"
  },
  {
   "id": 8,

@@ -36,6 +36,12 @@ let model = function (tableName){
                 return elem.name == nombre})     
             return product;
         },
+        findUser(nomUsuario) {
+            let rows = this.readFile();
+            let userId = rows.find(function(elem){
+                return elem.usuario == nomUsuario})     
+            return userId;
+        },
         findSimilares(id){
             let rows = this.readFile();            
             if (rows.length !== 0){                
