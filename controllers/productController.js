@@ -22,8 +22,16 @@ const controller = {
         console.log(producto.id)
         /*busco relacionados*/         
         let filtrados = productModel.findSimilares(id);
+        /*solo puede imprimir 3 relacionados */
+        let fin = 0;
+        if (filtrados.length !== 0 ){
+            if (filtrados.length >3) {
+                fin = 3
+            }
+            else {fin = filtrados.length}           
+        }
         console.log(filtrados)          
-        res.render("detallProdNuevo",{producto,filtrados});
+        res.render("detallProdNuevo",{producto,filtrados,fin});
     },
    
     carrito: (req,res) => {

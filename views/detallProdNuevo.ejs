@@ -88,16 +88,14 @@
                 <div class="productsRelacionados">
                     <h2>PRODUCTOS</h2>
                     <h2>Relacionados</h2>
-                    <% if (filtrados.length !== 0){ %>
-                <!-- falta la validción de largo tabla-->
-                    <% for (i=0 ; i< filtrados.length  ; i++){ %>
+             <% if (filtrados.length !== 0){ %> 
+                    <% for (i=0 ; i< fin  ; i++){ %>
                     <article>
                     <img id="productsRelImagen" src="/images/<%= filtrados[i].imagenPPAL %>">            
                     <span id="flecha">Ver<a href="/product/detail/<%= filtrados[i].id %>"><i class="fas fa-arrow-alt-circle-right"></i></a></span>
                     </article>
                     <% } %>
-                    <% } %>
-               
+                    <% } %>              
 
                    <!--- <article>
                     <img id="productsRelImagen" src="/images/gucci.1.SinFondo.png"> 
