@@ -3,6 +3,7 @@ const router = express.Router()
 const multer = require("multer")
 const productController = require("../controllers/productController")
 const {body, check} = require('express-validator')
+const validatorP = require("../validator/validatorProduct");
 
 
 router.get('/detail/:id', productController.detail);
@@ -10,8 +11,10 @@ router.get('/detail/:id', productController.detail);
 router.get("/register",productController.register);*/
 router.get("/carrito",productController.carrito);
 router.get("/finCarrito",productController.finCarrito);
+// viene el crud
+router.get("/listProductos",productController.list);
 router.get("/altaProducto",productController.altaProducto);
-router.post("/altaProducto",productController.storeAlta);
+router.post("/altaProducto",validatorP.camposProducto,productController.storeAlta);
 router.get("/bajaProducto",productController.bajaProducto)
 router.post("/bajaProducto",[
     check('name').isEmpty().withMessage('Debe ingresar un nombre COMPLETO')],    

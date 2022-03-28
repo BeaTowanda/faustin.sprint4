@@ -113,6 +113,10 @@ div.seleccionAnio{
 #anio{
     margin-left: 3rem;
 }
+#errorMsgeColor{
+    color:red;
+    align-self: left;
+}
 /* termina talle y color*/
 /*empieza rectángulo productValores*/
 .productValores{  
@@ -178,7 +182,7 @@ main div.submitMasEnviar{
  
 input{
     background-color:#F4F1DE ;
-    border-radius: 10px;
+    border-radius: 1px;
 }
 
 option #anio option{

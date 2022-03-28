@@ -76,6 +76,9 @@ div.imgs{
     width: 4rem;
     height: 3rem;
 }
+#errorMsge{
+    color:red;
+}
 
 .imgs button:hover{     
     border-radius: 20%;
