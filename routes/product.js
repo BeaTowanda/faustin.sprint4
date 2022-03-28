@@ -13,6 +13,8 @@ router.get("/carrito",productController.carrito);
 router.get("/finCarrito",productController.finCarrito);
 // viene el crud
 router.get("/listProductos",productController.list);
+router.get("/detailOne/:id",productController.detailOne)
+router.post("/detailOne/:id",validatorP.camposProducto,productController.updateOne)
 router.get("/altaProducto",productController.altaProducto);
 router.post("/altaProducto",validatorP.camposProducto,productController.storeAlta);
 router.get("/bajaProducto",productController.bajaProducto)

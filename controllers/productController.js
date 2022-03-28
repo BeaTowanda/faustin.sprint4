@@ -40,7 +40,41 @@ const controller = {
     list: (req,res) => {
         let productsFound = productModel.all();
         res.render("listProductos",{products:productsFound})
-    },    
+    },  
+    detailOne : (req,res) =>{
+        let id = req.params.id
+        console.log(id + "  es el id a modificar estoy en detailOne")
+        let producto = productModel.find(id); 
+        res.render("updateProducto",{producto:producto}) 
+    }, 
+    updateOne : (req,res) =>{
+        const errors = validationResult(req);        
+        console.log("la lenght de errores es : " + errors.errors.length)
+        if(errors.errors.length > 1){
+            res.render("updateProducto", {errorsProd: errors.mapped()})
+        };
+        if (errors.errors.length == 1 ){         
+            console.log("está en else de modifica " + req.body.name)           
+            let updateProduct = {            
+                name: req.body.name ,
+                description :req.body.description,
+                description2 :req.body.description2,
+                description3 : req.body.description3, 
+                price: req.body.price,
+                descuento :req.body.descuento,
+                colection :req.body.colection,
+                anio: req.body.anio,
+                color : req.body.color,
+                tipo : req.body.tipo,
+                cantidad : req.body.cantidad 
+                };
+            
+                console.log (updateProduct.name + " es el nombre del producto a modificar");
+               
+                let data = productModel.update(updateProduct);            
+                res.render("updateProducto",{data} )
+        }; /*acá termina el else */ 
+    },      
     bajaProducto: (req,res) =>{                   
         res.render("bajaProducto")
     }, 
