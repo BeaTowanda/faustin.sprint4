@@ -82,27 +82,17 @@ const controller = {
                 res.send("modificación exitosa " )
         }; /*acá termina el else */ 
     },      
-    bajaProducto: (req,res) =>{                   
-        res.render("bajaProducto")
+    bajaProducto: (req,res) =>{ 
+        /* reconfirmar que quiere dar de baja */ 
+        let id = req.params.id
+        let producto = productModel.find(id); 
+                         
+        res.render("bajaProducto",{producto:producto})
     }, 
-    borrarProducto : (req,res) =>{
-        let errors =[];
-        errors = validationResult(req)
-        console.log(errors)
-        if(!errors.isEmpty()){
-            console.log("encontró errores ")
-            return res.render('bajaProducto', {errors: errors.errors})
-        } 
-        console.log("datos del query son "+ req.body)       
-        let nombre= req.body.name;
-        
-        console.log("el body.name es  "+ nombre);
-        let producto = productModel.findName(nombre);
-
-        if (producto == undefined){
-        res.render("bajaProducto")}
-        else { id=producto.id; 
-            productModel.delete(id)}
+    storeDelete : (req,res) =>{
+            let id= req.body.id
+            productModel.delete(id); 
+            res.send("baja existosa")
     },   
     altaP: (req,res) => {
         res.render("altaProducto")

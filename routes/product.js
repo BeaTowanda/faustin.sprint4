@@ -15,12 +15,13 @@ router.get("/finCarrito",productController.finCarrito);
 router.get("/listProductos",productController.list);
 router.get("/detailOne/:id",productController.detailOne)
 router.post("/updateOne/:id",validatorP.updateProducto,productController.storeUpdate)
+
 router.get("/altaProducto",productController.altaP);
 router.post("/altaProducto",validatorP.altaProducto,productController.storeAlta);
-router.get("/bajaProducto",productController.bajaProducto)
-router.post("/bajaProducto",[
-    check('name').isEmpty().withMessage('Debe ingresar un nombre COMPLETO')],    
-productController.borrarProducto);
+
+router.get("/bajaProducto/:id",productController.bajaProducto)
+router.post("/bajaProducto", productController.storeDelete)
+
 router.get("/ofertas",productController.ofertas);
 
 module.exports = router;

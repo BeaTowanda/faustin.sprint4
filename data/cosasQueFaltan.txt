@@ -1,0 +1,24 @@
+29-03-2022
+
+BAJA PRODUCTO : ver el tema de la imagen PPAL que no sale
+                emprolijar la view
+CSS : en todas las páginas hay que ver porque sobra antes del FOOTER
+      poner al mismo tamaño TODAS LAS IMAGENES 
+JSON PRODUCTO Y EN EL HOME REVISAR QUE NO ESTOY USANDO EL DETALLE 3.. VER BIEN ESO / tb en alta
+
+CRUD PRODUCTOS . armar una VIEW cuando informo ALTA EXITOSA/MODIFICAIÓN EXITOSA Y BAJA EXITOSA COMO 
+                parámetro y dar la opción de volver siempre a HOME ESTO ES IMPORTANTE¡
+
+                hay un error oculto ( SEGURAMENTE EN LAS VIEWS entonces da ERRORS con 1 .. eso ver cuando aparece )
+                CUANDO USEMOS BASE DE DATOS ARRELGAR EL TEMA DE TIPOS/colores anio para que sea un parámetro
+
+                revisar el tema de RESPONSIVE EN LAS PAGINAS NUEVAS bajaPRoducto// altaProducto
+
+                FALTA PONER EL MULTER Y PODER CARGAR IMAGENES ( está el middleware de MULTER listo para usar)
+
+LOGIN FALTA TODO .. está planteado pero NADA BIEN.. ARREGLAR TODO 
+
+hay muchos console log.. por ahora dejarlos sirve para modificaciones PRÓXIMAS 
+
+
+

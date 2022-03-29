@@ -170,25 +170,6 @@
   "imagenDetalle3": "morralHombreSInFondo.Detail2.png"
  },
  {
-  "id": 10,
-  "name": "CARTERA GLIP DUO FASHION ",
-  "description": "Cuero CUERO y CHAROL  ",
-  "description2": "Con billetera en juego ",
-  "description3": "Detalles en Charol ",
-  "price": 55000,
-  "descuento": 5,
-  "anio": 2022,
-  "colection": "primavera",
-  "color": "verde",
-  "tipo": "cartera",
-  "cantidad": 20,
-  "imagenPPAL": "carteraVerdeGlipSinFondo.png",
-  "imagenDORSO": "carteraVerdeGlipSinfondo.back.png",
-  "imagenDetalle1": "carteraVerdeGlipSinfondo.detail2.png",
-  "imagenDetalle2": "carteraVerdeGlipSinFondo.Detail1.png",
-  "imagenDetalle3": "carteraVerdeGipSinFondo.Detail2.png"
- },
- {
   "id": 11,
   "name": "MOCHILA GUCCI TEXTURADA ",
   "description": "Cuero CHAROL con Bajo Relieve  ",
