@@ -94,7 +94,7 @@
                         <p id="actual">COLECCION  actual: <%= producto.colection %></p> 
                         <p> RECUERDE COLECCIONES POSIBLES :verano/otoño/invierno/primavera</p>
                         <p><label id="" for ="colection"></label>
-                        <input placeholder="" type="text"  name="colection" id="user1" value="<%= producto.colection %>" ></p>     
+                        <input placeholder="" type="text"  name="colection" id="user2" value="<%= producto.colection %>" ></p>     
                          <!---   <input type="checkbox" name="colection" value="verano">Verano
                             <input type="checkbox" name="colection" value="otoño">Otoño
                             <input type="checkbox" name="colection" value="invierno">Invierno                   
@@ -109,7 +109,7 @@
                         <p id="actual">TIPO de Producto Actual: <%= producto.tipo %></p>                    
                         <p> RECUERDE TIPOS de PRoductos :bolso/cartera/bandolera/mochila</p>
                         <p><label id="" for ="colection"></label>
-                        <input placeholder="" type="text"  name="tipo" id="user1" value="<%= producto.tipo %>" ></p>          
+                        <input placeholder="" type="text"  name="tipo" id="user2" value="<%= producto.tipo %>" ></p>          
                         <!---    <input type="checkbox" name="tipo" value="bolso">Bolso
                             <input type="checkbox" name="tipo" value="cartera">Cartera
                             <input type="checkbox" name="tipo" value="bandolera">Bandolera 
@@ -129,7 +129,7 @@
                         <br/>
                         <p> RECUERDE COLORES  :beige/azul/verde/guinda/suela/brue</p>
                         <p><label id="" for ="color"></label>
-                        <input placeholder="" type="text"  name="color" id="user1" value="<%= producto.color %>" ></p>     
+                        <input placeholder="" type="text"  name="color" id="user2" value="<%= producto.color %>" ></p>     
                         <!--<div class="colores">  
                         <input type="checkbox" id = "amarillo" name="color" value="beige" >
                         <label for=""><img id="colorList" src="/images/etiqueta11Beige1.png"></label>          
@@ -153,7 +153,7 @@
                         <p id="actual">AÑO ACTUAL : <%= producto.anio %></p>  
                         <p> RECUERDE AÑOS POSIBLES :2023/2022/2021/EN STOCK</p>
                         <p><label id="" for ="anio"></label>
-                        <input placeholder="" type="text"  name="anio" id="user1" value="<%= producto.anio %>" ></p>      
+                        <input placeholder="" type="text"  name="anio" id="user2" value="<%= producto.anio %>" ></p>      
                         <!--<div id="anio">
 
                         <select name ="anio" id ="talles">
@@ -171,14 +171,14 @@
                     <div class="otrosValores">
                         <p>PRECIO registrado:$ <%= producto.price %></p>   
                         <label id="" for ="precioProducto"></label>
-                        <input placeholder="" type="number"  name="price" id="user" value="<%=producto.price %>"></p>
+                        <input placeholder="" type="number"  name="price" id="user2" value="<%=producto.price %>"></p>
                     <% if(locals.errorsProd && locals.errorsProd.price){ %>
                         <span id="errorMsge" > <%= errorsProd.price.msg  %> </span>
                     <% } %> 
                         <br/>
                         <p>Cantidad registrada: <%= producto.cantidad  %></p>   
                         <label id="" for ="cantidadProducto"></label>
-                        <input placeholder="" type="number"  name="cantidad" id="user" value="<%= producto.cantidad %>"></p>
+                        <input placeholder="" type="number"  name="cantidad" id="user2" value="<%= producto.cantidad %>"></p>
                     <% if(locals.errorsProd && locals.errorsProd.cantidadProducto){ %>
                         <span id="errorMsge" > <%= errorsProd.cantidadProducto.msg  %> </span>
                     <% } %> 
@@ -187,7 +187,7 @@
                         <h2><a href="#modal4"><img id="sale" src="/images/icono.sale.png"></a></h2>
                         <p>DESCUENTO registrado: <%= producto.descuento %></p>   
                         <label id="" for ="ofertaPorcentaje"></label>
-                            <input placeholder="" type="number"  name="descuento" id="user" value="<%= producto.descuento %>"></p>
+                            <input placeholder="" type="number"  name="descuento" id="user2" value="<%= producto.descuento %>"></p>
                     <% if(locals.errorsProd && locals.errorsProd.descuento){ %>
                             <span id="errorMsge" > <%= errorsProd.descuento.msg  %> </span>
                     <% } %> 
@@ -219,9 +219,15 @@
                 </div>
                 <div class="submitMasEnviar">          
                     <input type="submit" name="submit" id="enviar" value="ACTUALIZAR  PRODUCTO"> </input>
+                    <br/>
+                <a href="/" id="irBaja">DESEA DAR DE BAJA ESTE PRODUCTO ? </a>
+                <br/>
                 </div>        
                 <div class= "closeMain" >
+                
+                <br/>
                 <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+
                 </div>
                
         </form>

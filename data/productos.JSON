@@ -208,16 +208,16 @@
   "imagenDetalle3": "mochilaGucciSinFondo.detail2.png"
  },
  {
-  "name": "BANDOLERA BIG MAN",
+  "id": "12",
+  "name": "BANDOLERA BIG MAN MONTAIN",
   "description": "cartera cuero repujado",
   "description2": "manija trenzada",
   "price": "35500",
   "descuento": "5",
   "colection": "otoño",
-  "anio": 2022,
+  "anio": "2022",
   "color": "suela",
   "tipo": "cartera",
-  "cantidad": "30",
-  "id": 12
+  "cantidad": "30"
  }
 ]

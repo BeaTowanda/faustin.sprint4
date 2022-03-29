@@ -1,3 +1,4 @@
+const { Console } = require('console');
 const fs = require('fs');
 const path = require('path');
 
@@ -67,6 +68,8 @@ let model = function (tableName){
         },
         update(row) {
             let rows = this.readFile();
+            console.log(row.id + " es id en update DE MODEL ")
+            console.log(row.name + " es nombre update DE MODEL ")
             let updatedRows = rows.map(oneRow => {
                 if (oneRow.id == row.id) {
                     return row;
@@ -74,7 +77,7 @@ let model = function (tableName){
 
                 return oneRow;
             }); 
-
+            
             this.writeFile(updatedRows);
 
             return row.id;

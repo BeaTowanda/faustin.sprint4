@@ -45,7 +45,7 @@ const controller = {
         let id = req.params.id
         console.log(id + "  es el id a modificar estoy en detailOne")
         let producto = productModel.find(id); 
-        console.log(producto.name + " antes de renderizar updateProducto")
+  
         res.render("updateProducto",{producto:producto}) 
     }, 
     storeUpdate : (req,res) =>{
@@ -53,8 +53,7 @@ const controller = {
        //tengo que actualizar los checkbox para evitar que lo tengan que tildar
        //hasta que esté la base de datos con tipos/coleccion y color lo hago standard. LUEGO MODIFICAR        
        // IMPORTANTE 
-        let id = req.params.id
-        console.log(req.params.name + "req.params.name en storeUpdate")
+        let id = req.params.id         
         const errors = validationResult(req);        
         console.log("la lenght de errores es : " + errors.errors.length)
         if(errors.errors.length > 1){
@@ -63,8 +62,9 @@ const controller = {
         };
         // acordarse de error oculto por eso el 1 
         if (errors.errors.length == 1 ){         
-            console.log("está en else de modifica " + req.body.name)           
-            let updateProduct = {            
+                     
+            let updateProduct = {  
+                id :id,          
                 name: req.body.name ,
                 description :req.body.description,
                 description2 :req.body.description2,
@@ -76,10 +76,8 @@ const controller = {
                 color : req.body.color,
                 tipo : req.body.tipo,
                 cantidad : req.body.cantidad 
-                };
-            
-                console.log (updateProduct.name + " es el nombre del producto a modificar");
-               
+                };            
+  
                 let data = productModel.update(updateProduct);            
                 res.send("modificación exitosa " )
         }; /*acá termina el else */ 
