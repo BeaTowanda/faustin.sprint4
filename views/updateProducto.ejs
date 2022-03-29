@@ -48,17 +48,9 @@
                 <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
                 </ul>            
             </div>          
-            <section class="errores">
-                <% if(typeof data!='undefined'){ %>
-                    <ul>
-                      
-                          <li style="color: red;">LA MODIFICACION HA SIDO REALIZADA con exito 
-                      <% } %>
-                    </ul>
-               
-            </section>
+            
         <!--<form action="/product/altaProducto" method="POST" enctype = "multipart/form-data">-->
-            <form action="/product/" method="POST">
+            <form action="/product/updateOne/<%= producto.id %>" method="POST">
                 <div class="descriptionProduct">
                     <p>Nombre actual:<%= producto.name %></p>
                     <p><label id="" for ="nombreProducto">NOMBRE DEL PRODUCTO</label>
@@ -100,11 +92,13 @@
                 <div>                  
                     <div class="licencias">                      
                         <p id="actual">COLECCION  actual: <%= producto.colection %></p> 
-                        <label></label>        
-                            <input type="checkbox" name="colection" value="verano">Verano
+                        <p> RECUERDE COLECCIONES POSIBLES :verano/otoño/invierno/primavera</p>
+                        <p><label id="" for ="colection"></label>
+                        <input placeholder="" type="text"  name="colection" id="user1" value="<%= producto.colection %>" ></p>     
+                         <!---   <input type="checkbox" name="colection" value="verano">Verano
                             <input type="checkbox" name="colection" value="otoño">Otoño
                             <input type="checkbox" name="colection" value="invierno">Invierno                   
-                            <input type="checkbox" name="colection" value="primavera">Primavera
+                            <input type="checkbox" name="colection" value="primavera">Primavera-->
                     <% if(locals.errorsProd && locals.errorsProd.colection){ %>
                             <span id="errorMsge" > <%= errorsProd.colection.msg  %> </span>
                     <% } %>   
@@ -113,11 +107,13 @@
                     </div>
                     <div class="tipoProducto">                      
                         <p id="actual">TIPO de Producto Actual: <%= producto.tipo %></p>                    
-                        <label></label>        
-                            <input type="checkbox" name="tipo" value="bolso">Bolso
+                        <p> RECUERDE TIPOS de PRoductos :bolso/cartera/bandolera/mochila</p>
+                        <p><label id="" for ="colection"></label>
+                        <input placeholder="" type="text"  name="tipo" id="user1" value="<%= producto.tipo %>" ></p>          
+                        <!---    <input type="checkbox" name="tipo" value="bolso">Bolso
                             <input type="checkbox" name="tipo" value="cartera">Cartera
                             <input type="checkbox" name="tipo" value="bandolera">Bandolera 
-                            <input type="checkbox" name="tipo" value="mochila">Mochila 
+                            <input type="checkbox" name="tipo" value="mochila">Mochila -->
                     <% if(locals.errorsProd && locals.errorsProd.tipo){ %>
                             <span id="errorMsge" > <%= errorsProd.tipo.msg  %> </span>
                     <% } %> 
@@ -131,7 +127,10 @@
                             <p id="errorMsge"> <%= errorsProd.color.msg  %> </p>
                 <% } %> 
                         <br/>
-                        <div class="colores">  
+                        <p> RECUERDE COLORES  :beige/azul/verde/guinda/suela/brue</p>
+                        <p><label id="" for ="color"></label>
+                        <input placeholder="" type="text"  name="color" id="user1" value="<%= producto.color %>" ></p>     
+                        <!--<div class="colores">  
                         <input type="checkbox" id = "amarillo" name="color" value="beige" >
                         <label for=""><img id="colorList" src="/images/etiqueta11Beige1.png"></label>          
                         <input type="checkbox" id="azul" name="color" value="azul">
@@ -145,25 +144,29 @@
                         <input type="checkbox" id ="gris" name="color" value="brue">
                         <label for=""><img id="colorList" src="/images/etiqueta11Brue.png"></label>
                 
-                        </div>
+                        </div>-->
                         <p>Nuevo COLOR<a href="/altacolor"><i class="fas fa-arrow-alt-circle-right"></i></a>
                         </p>
                     </div>
                     <div class="seleccionAnio">
                        
-                        <p id="actual">AÑO ACTUAL : <%= producto.anio %></p>   
-                        <div id="anio">
+                        <p id="actual">AÑO ACTUAL : <%= producto.anio %></p>  
+                        <p> RECUERDE AÑOS POSIBLES :2023/2022/2021/EN STOCK</p>
+                        <p><label id="" for ="anio"></label>
+                        <input placeholder="" type="text"  name="anio" id="user1" value="<%= producto.anio %>" ></p>      
+                        <!--<div id="anio">
+
                         <select name ="anio" id ="talles">
                             <option value = "2023">2023 </option>
                             <option value = "2022">2022</option>
                             <option value = "2021">2021</option>
                             <option value = "2020">2020</option>
-                            <option value = "EN STOCK">EN STOCK </option>
+                            <option value = "EN STOCK">EN STOCK </option>-->
                     <% if(locals.errorsProd && locals.errorsProd.anio){ %>
                             <span id="errorMsge" > <%= errorsProd.anio.msg  %> </span>
                     <% } %> 
-                        </select>
-                        </div>
+                      <!---   </select>
+                        </div>-->
                     <div class="productValores">            
                     <div class="otrosValores">
                         <p>PRECIO registrado:$ <%= producto.price %></p>   

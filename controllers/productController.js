@@ -45,14 +45,23 @@ const controller = {
         let id = req.params.id
         console.log(id + "  es el id a modificar estoy en detailOne")
         let producto = productModel.find(id); 
+        console.log(producto.name + " antes de renderizar updateProducto")
         res.render("updateProducto",{producto:producto}) 
     }, 
-    updateOne : (req,res) =>{
+    storeUpdate : (req,res) =>{
+        // *********** IMPORTANTE **************
+       //tengo que actualizar los checkbox para evitar que lo tengan que tildar
+       //hasta que esté la base de datos con tipos/coleccion y color lo hago standard. LUEGO MODIFICAR        
+       // IMPORTANTE 
+        let id = req.params.id
+        console.log(req.params.name + "req.params.name en storeUpdate")
         const errors = validationResult(req);        
         console.log("la lenght de errores es : " + errors.errors.length)
         if(errors.errors.length > 1){
-            res.render("updateProducto", {errorsProd: errors.mapped()})
+            let producto = productModel.find(id); 
+            res.render("updateProducto", {errorsProd: errors.mapped(),producto:producto})
         };
+        // acordarse de error oculto por eso el 1 
         if (errors.errors.length == 1 ){         
             console.log("está en else de modifica " + req.body.name)           
             let updateProduct = {            
@@ -72,7 +81,7 @@ const controller = {
                 console.log (updateProduct.name + " es el nombre del producto a modificar");
                
                 let data = productModel.update(updateProduct);            
-                res.render("updateProducto",{data} )
+                res.send("modificación exitosa " )
         }; /*acá termina el else */ 
     },      
     bajaProducto: (req,res) =>{                   
@@ -97,7 +106,7 @@ const controller = {
         else { id=producto.id; 
             productModel.delete(id)}
     },   
-    altaProducto: (req,res) => {
+    altaP: (req,res) => {
         res.render("altaProducto")
     },   
     storeAlta: (req,res) =>{
@@ -149,8 +158,8 @@ const controller = {
             
                 console.log (newProduct.name + " es el nombre del producto alta");
                 console.log(newProduct.colection + newProduct.color + newProduct.tipo + newProduct.price)
-                let data = productModel.create(newProduct);            
-                res.render("altaProducto",{data} )
+                let data = productModel.create(newProduct);                 
+                res.render ("altaProducto",{data})                    
         }; /*acá termina el else */ 
     },
     ofertas: (req,res) => {

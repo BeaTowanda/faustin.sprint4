@@ -14,9 +14,9 @@ router.get("/finCarrito",productController.finCarrito);
 // viene el crud
 router.get("/listProductos",productController.list);
 router.get("/detailOne/:id",productController.detailOne)
-router.post("/detailOne/:id",validatorP.camposProducto,productController.updateOne)
-router.get("/altaProducto",productController.altaProducto);
-router.post("/altaProducto",validatorP.camposProducto,productController.storeAlta);
+router.post("/updateOne/:id",validatorP.updateProducto,productController.storeUpdate)
+router.get("/altaProducto",productController.altaP);
+router.post("/altaProducto",validatorP.altaProducto,productController.storeAlta);
 router.get("/bajaProducto",productController.bajaProducto)
 router.post("/bajaProducto",[
     check('name').isEmpty().withMessage('Debe ingresar un nombre COMPLETO')],    
