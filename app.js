@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session')
+const recordar = require("./middlewares/recordarMiddle");
+//const locals = require("./middlewares/locals");
+
 /*ya instalé el multer ver en productRouter*/
 
 
@@ -27,6 +30,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
 }))
+app.use(recordar);
 
 app.use('/', indexRouter);
 app.use("/product", productRouter);

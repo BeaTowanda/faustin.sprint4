@@ -37,35 +37,42 @@
     </header>-->
     <%- include('partials/header') %>
     <div class="cuerpoLogin">
-        <section class="errores">
-            <% if(typeof errors!='undefined'){ %>
-                <ul>
-                  <% for (let i=0; i < errors.length; i++) { %>
-                      <li style="color: red;"><%= errors[i].msg %> </li>
-                  <% } %>
-                </ul>
-            <% } %>
-        </section>
-        <form action="/users/processLogin" method="POST">
+        
+        <form action="/users/login" method="POST">
         
         <div class="paginaLogin">
+            
             <!-- FALTA ARREGLAR QUE ESTÁN OTRA VEZ SEPARADOS.. VER OTRO DÍA-->
             <div class="etiquetasDeLogin">
-                <span class="usuario">Nombre de usuari@</span>
-                <span class="password">Contraseña</span>
+                <!--<p>Puede ingresar con Nombre de Usuario o con Mail REGISTRADOS</p>-->
+                <p><label class="usuario"for ="usuario">Nombre Usuario</label>
+                    <input placeholder="" type="text"  name="usuario" class="barraDeUsuario" ></p>
+                    <% if(locals.errorsLogin && locals.errorsLogin.usuario){ %>
+                        <span id="errorMsge" > <%= errorsLogin.usuario.msg  %> </span>
+                      <% } %> 
+                    <br/>
+               <!--- <p><label class="usuario"for ="email">EMAIL</label>
+                    <input placeholder="" type="text"  name="mail" class="barraDeUsuario" ></p>-->
+                     
+                    <br/>
+                <p><label class="usuario"for ="contraseña">Ingrese CONTRASEÑA</label>
+                    <input placeholder="" type="text"  name="contraseña" class="barraDeUsuario" ></p>
+                    <% if(locals.errorsLogin && locals.errorsLogin.contraseña){ %>
+                        <span id="errorMsge" > <%= errorsLogin.contraseña.msg  %> </span>
+                    <% } %> 
+                    <br/>
+                    <label for="recordame" class="usuario">Recordame</label>
+                    <input type="checkbox" name="recordame" >
             </div>
-            <div class="botonesDeLogin">
-                <input type="text" name="usuario" id="usuario"  class="barraDeUsuario" >
-                <input type="password" name="contraseña" id="password" class="barraPassword">
-                <label for="recordame" class="usuario">Recordame</label>
-                <input type="checkbox" name="recordame" >
-            </div>
+                
         </div>
-        <div class="button">
-            <button type="submit" class="boton1">
-                <span class="iniciarSesion">Iniciar Sesion</span>
-            </button>
-        </div>
+        
+        <div class="button">    
+            <input type="submit" name="submit" class="boton1" value="Iniciar Sesión"> </input>
+             <br/>         
+           <p id="volver"><a href="/" class= "boton1">Volver a Pagina Principal</a></p>
+        </div>             
+        
         <div class="cuentaYContraseña">                     
             <p>
                 <a href= "#" class="linkOlvidasteContraseña">¿Olvidaste tu contraseña?</a>

@@ -46,7 +46,13 @@ let model = function (tableName){
             let userId = rows.find(function(elem){
                 return elem.usuario == nomUsuario})     
             return userId;
-        },
+        }, 
+        findMail(mail) {
+            let rows = this.readFile();
+            let userId = rows.find(function(elem){
+                return elem.usuario == mail})     
+            return userId;
+        },        
         findSimilares(id){
             let rows = this.readFile();            
             if (rows.length !== 0){                

@@ -3,6 +3,7 @@ const path = require('path');
 const { urlencoded } = require("express")
 const {validationResult, body} = require("express-validator")
 const modelCrud = require('../data/modelCrud');
+const bcrypt = require("bcryptjs")
 const res = require('express/lib/response');
 const { redirect } = require('express/lib/response');
 
@@ -10,53 +11,53 @@ const userModel = modelCrud("userJson");
 
 const controller = {
     
-    login: (req,res) =>{
+    login: (req,res) =>{        
         res.render("login")
     }, 
     processLogin :(req,res) =>{
-        let errors =[];
-        errors = validationResult(req)
-        console.log(errors)
-        if(!errors.isEmpty()){
-            console.log("encontró errores ")
-            return res.render('login', {errors: errors.errors})
-        };
-        let usuario= req.body.usuario;
+        const errors = validationResult(req);        
         
-        console.log("el body.usuario es  "+ usuario);
-        let verUsuario = userModel.findUser(usuario);
-        if (verUsuario == undefined){
-            res.render("login",{errors:[{msg:"Usuario NO Existe"}]});
-        };
-        if (verUsuario.contraseña !== req.body.contraseña){
-            res.render("login",{errors:[{msg:"CONTRASEÑA INVALIDA"}]})
+        if(errors.errors.length > 0){
+            res.render("login", {errorsLogin: errors.mapped()})
         }
-        else { req.session.usuarioLog == verUsuario};
-        /*implemento cookie pero activar cuando lea bien el BODY*/
-        /*if (req.session.usuarioLog !== undefined){
-            res.cookie ("recordame",verUsuario.id, {maxAge : 60000})
-        };*/
-        res.render("/");
+
+        const userFound =  userModel.findUser(req.body.usuario);         
+
+        if (userFound == undefined) {
+            //proceso session
+            let user = {
+                id: userModel.nextId(),
+                primerNombre: req.body.primerNombre,
+                apellido: req.body.apellido,
+                mail: req.body.mail,
+                fechaNacimiento:req.body.date,
+                fechaAlta:date(),
+                contraseña: bcrypt.hashSync(req.body.contraseña, 10),               
+                //avatar: userFound.avatar,
+            }
+
+            req.session.usuarioLogueado = user
+
+            if(req.body.recordame){
+                res.cookie("user", user.id, {maxAge: 50000 * 24})
+            }
+
+            res.redirect("/")
+
+        }else{
+            res.render("login", {errorMsg: "No se ha podido realizar REGISTRO"})
+        } 
     }, 
     register: (req,res) =>{
         res.render("formularioRegistro")
     },
     altaRegister: (req,res) =>{
         let errors =[];
-        errors = validationResult(req)
-        console.log(errors)
-        if(!errors.isEmpty()){
-            console.log("encontró errores ")
-            return res.render('formularioRegistro', {errors: errors.errors})
-        }
-        console.log("datos del body son "+ req.body)       
-        let usuario= req.body.usuario;
+        errors = validationResult(req);       
+        if(errors.errors.length > 0){
+           return res.render("formularioRegistro", {errors: errors.mapped()})
+        }      
         
-        console.log("el body.usuario es  "+ usuario);
-        let verUsuario = userModel.findUser(usuario);
-        if (verUsuario){
-            res.render("formularioRegistro")
-        }
         else {redirect("/")};         
     }
 };

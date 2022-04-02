@@ -5,8 +5,7 @@
     opacity: 70%;
    
     /*width: 1900px;*/
-    padding-bottom: 185px;
-    
+    padding-bottom: 185px;  
 
     
    
@@ -14,7 +13,8 @@
 .paginaLogin {
     display: flex;
     flex-direction: row;
-    justify-content: center
+    justify-content: center;
+    margin-left:4rem;
        
 }
 
@@ -35,8 +35,13 @@
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
 
-
+}
+#volver{
+    text-decoration: none;
 }
 
 
@@ -56,7 +61,7 @@
 }
 
 .boton1 {
-    width: 540px;
+    width: 200px;
     height: 40px;
     border-radius: 5%;
     color: black;
@@ -72,13 +77,13 @@
 }
 
 .usuario {
-    font-size: 25px;
+    font-size: 18px;
     margin-right: 10px;
     font-weight: bold;
 }
 
 .password {
-    font-size: 25px;
+    font-size: 18px;
     margin-top: 20px;
     position: relative;
     left: 89px;
@@ -87,19 +92,20 @@
 }
 
 .barraDeUsuario {
-    width: 300px;
-    height: 25px;
+    width: 200px;
+    height: 18px;
+    border-radius: 3px;
 }
 
 .barraPassword {
     width: 300px;
-    height: 25px;
+    height: 18px;
     margin-top: 20px;
     margin-right: 10px;
 }
 
 .iniciarSesion {
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .linkOlvidasteContraseña {

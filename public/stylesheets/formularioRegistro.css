@@ -65,8 +65,10 @@
     flex-direction: row;
     align-items: center;
     font-weight: bold;
+    align-content: center;
     margin: 2rem 2rem 0.5rem 5rem;
-    
+    flex-wrap: nowrap;
+    justify-content: center;
     
 }
 #enviar{    
