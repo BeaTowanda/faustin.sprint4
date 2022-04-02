@@ -1,33 +1,18 @@
 const modelCrud = require('../data/modelCrud');
 const userModel = modelCrud("userJson");
-function recordarMiddle (req,res,next){
-    if((req.cookies.recordame != undefined) && 
-       (req.session.usuarioLog == undefined)) {
-           req.cookies.recordame = req.session.usuarioLog
-       } 
-       /* aquí está faltando comparar con lo que tengo en archivo */
-}
-module.exports = recordarMiddle
-const fs = require("fs");
-const path = require("path");
 
-function findAll(){
-    const users =  userModel.all();
-   
-    return users;
-}
 
-function recordar (req, res , next){
+function recordarMiddle (req, res , next){
     if(!req.session.usuarioLogueado && req.cookies.user){
-        let users = findAll()
+        let users = userModel.all()
         const usuarioCookies = users.find(function(user){
             return user.id == req.cookies.user
         })
 
         let user = {
             id: usuarioCookies.id,
-            name: usuarioCookies.nombre,
-            last_name: usuarioCookies.apellido,
+            nombre: usuarioCookies.nombre,
+            apellido: usuarioCookies.apellido,
             //avatar: usuarioCookies.avatar,
         }
 
@@ -39,4 +24,7 @@ function recordar (req, res , next){
         return next()
     }
 }
-module.exports = recordar;
+module.exports = recordarMiddle;
+
+
+

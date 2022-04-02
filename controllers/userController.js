@@ -21,18 +21,16 @@ const controller = {
             res.render("login", {errorsLogin: errors.mapped()})
         }
 
-        const userFound =  userModel.findUser(req.body.usuario);         
+        //const userFound =  userModel.findUser(req.body.usuario);         
 
-        if (userFound == undefined) {
+        if (req.body) {
             //proceso session
             let user = {
-                id: userModel.nextId(),
+                //aquí
+                id: userModel.findMail(req.body.mail),
                 primerNombre: req.body.primerNombre,
                 apellido: req.body.apellido,
-                mail: req.body.mail,
-                fechaNacimiento:req.body.date,
-                fechaAlta:date(),
-                contraseña: bcrypt.hashSync(req.body.contraseña, 10),               
+                mail: req.body.mail           
                 //avatar: userFound.avatar,
             }
 
@@ -55,10 +53,27 @@ const controller = {
         let errors =[];
         errors = validationResult(req);       
         if(errors.errors.length > 0){
-           return res.render("formularioRegistro", {errors: errors.mapped()})
+           return res.render("formularioRegistro", {errorsReg: errors.mapped()})
         }      
         
-        else {redirect("/")};         
+        else {
+            let userAlta = {
+                id: userModel.nextId(),
+                primerNombre: req.body.primerNombre,
+                apellido: req.body.apellido,
+                mail: req.body.mail,
+                fechaNacimiento:req.body.date,
+                fechaAlta:date(),
+                contraseña: bcrypt.hashSync(req.body.contraseña, 10),               
+                //avatar: userFound.avatar,
+            }
+            userModel.writeFile(userAlta);
+            res.redirect("/users/login")};         
+    },
+    logout:function(req, res){
+        req.session.destroy();       
+        res.clearCookie("user");
+        res.redirect("/");
     }
 };
 
