@@ -16,7 +16,10 @@ CRUD PRODUCTOS . armar una VIEW cuando informo ALTA EXITOSA/MODIFICAIÓN EXITOSA
 
                 FALTA PONER EL MULTER Y PODER CARGAR IMAGENES ( está el middleware de MULTER listo para usar)
 
-LOGIN FALTA TODO .. está planteado pero NADA BIEN.. ARREGLAR TODO 
+LOGIN ESTÁ TODO ARMADO Y VER COMO FUNCIONA
+DEL LOGIN FALTA :
+        MULTER / ver como OCULTAR CLAVE / COMO RECUPERAR LA CLAVE DESDE EL MAIL está encarado pero falta ver
+        como se hace para mandar mail y para recuperar dicha contraseña
 
 hay muchos console log.. por ahora dejarlos sirve para modificaciones PRÓXIMAS 
 

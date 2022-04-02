@@ -45,6 +45,19 @@ const controller = {
         }else{
             res.render("login", {errorMsg: "No se ha podido realizar REGISTRO"})
         } 
+    },
+    
+    forgot: (req,res) =>{        
+        res.render("loginOlvido")
+    },  
+    
+    activarSesion: (req,res) =>{ 
+        let errors =[];
+        errors = validationResult(req);       
+        if(errors.errors.length > 0){
+           return res.render("loginOlvide", {errorsOlvido: errors.mapped()})
+        }          
+        res.render("login")
     }, 
     register: (req,res) =>{
         res.render("formularioRegistro")

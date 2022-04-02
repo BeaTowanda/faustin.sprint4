@@ -81,6 +81,7 @@ const validatorU = {
         .notEmpty().withMessage("Email vacio")
         .bail()     
         .isEmail().withMessage('Mail NO Válido')
+        .bail()
         .custom(function(value){  
             //busco al usuario
             let userFound= userModel.findMail(value);                            
@@ -97,6 +98,24 @@ const validatorU = {
         // falta que sea mayor de edad buscar la función que dió AXEL
         check('terminos')
         .isEmpty().withMessage('Debe aceptar Términos y condiciones '),
+    ],
+    olvidoV :[
+        check('mail') 
+        .notEmpty().withMessage("Email vacio")
+        .bail()     
+        .isEmail().withMessage('Mail NO Válido')
+        .bail()
+        .custom(function(value){  
+            //busco al usuario
+            let userFound= userModel.findMail(value);                            
+            //si existe un usuario devuelvo el error
+            if(userFound == undefined){
+                throw new Error("Este Mail NO ESTÄ REGISTRADO en nuestra Base De Datos");
+            }
+            //sino devuelvo true
+            return true
+        })
+
     ]
 }
 

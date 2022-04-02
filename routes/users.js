@@ -12,7 +12,9 @@ router.post("/login",validatorU.login,userController.processLogin);
 router.get("/register",userController.register)
 router.post("/register",validatorU.register,userController.altaRegister);
 //* si se olvidó la contraseña ( ver )
-
+router.get("/olvido",userController.forgot)
+router.post("olvido",validatorU.olvidoV,userController.activarSesion)
+//
 router.get("cerrarSesion",userController.logout)
 
 module.exports = router;
