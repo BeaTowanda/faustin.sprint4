@@ -60,7 +60,7 @@
                 <br/>   
                 
                 <p><label id="" for ="apellido" class="todosLosTitulos">Apellido</label>
-                <input class="todosLosBotones" placeholder="" type="text"  name="Apellido" ></p> 
+                <input class="todosLosBotones" placeholder="" type="text"  name="apellido" ></p> 
                 <% if(locals.errorsReg && locals.errorsReg.apellido){ %>
                     <span id="errorMsge" > <%= errorsReg.apellido.msg  %> </span>
                   <% } %> 
@@ -74,7 +74,7 @@
                 <br/>
                 
                 <p><label id="" for ="contraseñaConfirma" class="todosLosTitulos">Confirmación de Contraseña</label>
-                <input class="todosLosBotones" placeholder="" type="text"  name="contraseñaConfirma" ></p>
+                <input class="todosLosBotones" placeholder="" type="password"  name="contraseñaConfirma" ></p>
                 <% if(locals.errorsReg && locals.errorsReg.contraseñaConfirma){ %>
                     <span id="errorMsge" > <%= errorsReg.contraseñaConfirma.msg  %> </span>
                   <% } %> 
