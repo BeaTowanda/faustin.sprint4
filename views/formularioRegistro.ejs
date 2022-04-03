@@ -88,8 +88,12 @@
                     <span id="errorMsge" > <%= errorsReg.fechaNacimiento.msg  %> </span>
                  <% } %> 
                     <br/>
-
-
+                <p><label id="" for="categoria">Categoria</label>
+                    <input class="todosLosBotones" type="text" name="categoria" id="archivo"> </p>
+                <% if(locals.errorsReg && locals.errorsReg.fechaNacimiento){ %>
+                    <span id="errorMsge" > <%= errorsReg.fechaNacimiento.msg  %> </span>
+                <% } %> 
+                     <br/> 
                
             </div>
            <!--- <div class="contenedorTodosLosBotones">
@@ -133,35 +137,10 @@
             </div>
         </form>
 
-    </section>
-
-    <!--<footer>
-        <div class="footerfaustine">
-            <img width="170" height="150" class="logoff" src="design/logo.jpg">
-            <nav class="lista1">
-                <ul>
-                    <li class="listasMargenes"><a href="·">Preguntas</a></li>
-                    <li class="listasMargenes"><a href="·">Ayuda</a></li>
-                    <li class="listasMargenes"><a href="·">La Marca</a></li>
-                    <li class="listasMargenes"><a href="·">Cambios y devoluciones</a></li>
-                </ul>
-            </nav>
-            <nav class="lista2">
-                <ul>
-                    <li class="listasMargenes"><a href="·">Whatsapp</a></li>
-                    <li class="listasMargenes"><a href="·">Instagram</a></li>
-                    <li class="listasMargenes"><a href="·">Numero</a></li>
-                    <li class="listasMargenes"><a href="·">Mail</a></li>
-                </ul>
-            </nav>
-
-
-
-        </div>
-    </footer>-->
+    </section>    
+         
     <footer>
-        <%- include('partials/footer') %>
-        
+        <%- include('partials/footer') %>         
     </footer>
     
 </body>

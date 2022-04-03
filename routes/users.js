@@ -14,6 +14,13 @@ router.post("/register",validatorU.register,userController.altaRegister);
 //* si se olvidó la contraseña ( ver )
 router.get("/olvido",userController.forgot)
 router.post("/olvido",validatorU.olvidoV,userController.activarSesion)
+
+router.get("/borrar",userController.baja)
+router.post("/borrar",validatorU.olvidoV,userController.delete)
+
+router.get("/listUsuarios",userController.list);
+router.get("/detailOne/:id",userController.detailOne)
+router.post("/updateOne/:id",validatorU.updateUser,userController.storeUpdate)
 //
 router.get("/cerrarSesion",userController.ConfirmLogout)
 router.post("/cerrarSesion",userController.logout)

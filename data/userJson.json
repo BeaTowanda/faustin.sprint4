@@ -10,11 +10,30 @@
   "fechaNacimiento": 19800711
  },
  {
-  "usuario": "usuarioPepe",
-  "primerNombre": "PEPE",
-  "apellido": "MEACUERDO",
-  "mail": "pepito@gmail.com",
-  "contraseña": "$2a$10$bkPbDhIdeYrDIrLn3khsMe9iTe1IPDoaJjKz9/jMrl8oxTBxc5shm",
-  "id": 2
+  "usuario": "usuarioCarlos",
+  "primerNombre": "carlos",
+  "apellido": "estevez",
+  "mail": "carlos@gmail.com",
+  "contraseña": "$2a$10$JkiqKQ1dL4WhV/HbTf8auenzMvgcHVnWxQdXnvfqYpe/a6W0AijRi",
+  "categoria": "usuario",
+  "id": 3
+ },
+ {
+  "usuario": "usuarioLucia",
+  "primerNombre": "Lucia",
+  "apellido": "Ochoa",
+  "mail": "lucia@yahoo.com.ar",
+  "categoria": "usuario",
+  "contraseña": "$2a$10$HZGSNLf3tRG6OvBHWlmgC.t6vjiMjKhBj7NztoC0dForQ7l8hwXYW",
+  "id": 4
+ },
+ {
+  "usuario": "usuarioTeresa",
+  "primerNombre": "Teresa",
+  "apellido": "Malvadisco",
+  "mail": "teresa@gmail.com",
+  "categoria": "usuario",
+  "contraseña": "$2a$10$d4GatzHVwx08r2Sg3DUvJ.EfqNt9Kzev818SlS3RpG6VsQ3QdxjOO",
+  "id": 5
  }
 ]

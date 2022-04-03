@@ -28,17 +28,18 @@ const controller = {
             res.render("login", {errorsLogin: errors.mapped()})
         }    
         const userID =  userModel.findUser(req.body.usuario); 
-  
-        if (validarContraseña) {    
-            if (req.body) {
-            //proceso session
+        if ((req.body.categoria == "usuario" || req.body.categoria == "administrador") && (validarContraseña)){
+        
+             if (req.body) {
+                //proceso session
                 let user = {
                 //aquí
                 id: userID.id,
                 usuario :req.body.usuario,
                 primerNombre: req.body.primerNombre,
                 apellido: req.body.apellido,
-                mail: req.body.mail           
+                mail: req.body.mail,
+                categoria: req.body.categoria          
                 //avatar: userFound.avatar,
                 }
 
@@ -86,6 +87,7 @@ const controller = {
                 apellido: req.body.apellido,
                 mail: req.body.mail,
                 fechaNacimiento:req.body.date,
+                categoria: "usuario",
                // fechaAlta: fecha,
                 contraseña: bcrypt.hashSync(req.body.contraseña, 10),               
                 //avatar: userFound.avatar,
@@ -94,11 +96,67 @@ const controller = {
             userModel.create(userAlta);
             res.redirect("/users/login")};         
     },
+    list:function(req, res){
+        let usersFound = userModel.all();  
+        console.log(usersFound) ;           
+        res.render("listadoUsuarios",{users:usersFound});
+    } ,   
+    detailOne:function(req, res){
+        let errors =[];
+        errors = validationResult(req); 
+          
+        if(errors.errors.length > 0){
+           return res.render("updateUsuario", {errorsUp: errors.mapped()})
+        }    
+        else {
+            let id = req.params.id
+            console.log(id + "  es el id a modificar estoy en detailOne")
+            let user = userModel.find(id); 
+       
+            res.render("updateUsuario",{user:user}) 
+        }
+    },  
+    storeUpdate: function(req,res){
+        let id = req.params.id
+        console.log(id + "  es el id a modificar estoy en detailOne")
+        let user = userModel.find(id); 
+        console.log("en storeUpdate el usuario es :" + user.id)
+        console.log("storeUpdate "+ user.usuario)
+        let userMod = {
+            id:user.id,
+            usuario:user.usuario,
+            contraseña : user.contraseña,
+            primerNombre:req.body.primerNombre,
+            apellido : req.body.apellido,
+            mail: req.body.mail,
+            //avatar: req.body.avatar,
+            fechaNacimiento:req.body.fechaNacimiento,
+            categoria: req.body.categoria
+        }  
+        userModel.update(userMod);   
+        res.redirect("/");
+    },
+    baja:function(req, res){
+        // usuario = session.usuarioLogueado.usuario
+        // console.log(usuario + "  es el req.session.usuario")
+         res.render("borrarUsuario")  
+     },   
+     delete:function(req, res){
+        let errors =[];
+        errors = validationResult(req);       
+        if(errors.errors.length > 0){
+           return res.render("borrarUsuario", {errorsOlvido: errors.mapped()})
+        }  
+        let userFound= userModel.findMail(req.body.mail);
+        userModel.delete(userFound.id);
+        res.redirect("/")        
+       
+    }, 
     ConfirmLogout:function(req, res){
-       // usuario = session.usuarioLogueado.usuario
-       // console.log(usuario + "  es el req.session.usuario")
-        res.render("confirmaLogout")  
-    },   
+        // usuario = session.usuarioLogueado.usuario
+        // console.log(usuario + "  es el req.session.usuario")
+         res.render("confirmaLogout")  
+     },          
     logout:function(req, res){
 
         req.session.destroy();       

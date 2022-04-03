@@ -70,10 +70,13 @@ div.altaProductLogo ul li{
 }
 
 
-.cuentaYContraseña {
+div .cuentaYContraseña {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-bottom: 70px;
+    margin-bottom: 10px;
+    margin-left: 10rem;
+   /* margin-bottom: 70px;*/
 }
 
 .linkOlvidasteContraseña {
@@ -82,7 +85,7 @@ div.altaProductLogo ul li{
 }
 
 .linkCrearCuenta {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .boton1 {
