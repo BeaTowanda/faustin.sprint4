@@ -50,7 +50,7 @@ let model = function (tableName){
         findMail(mail) {
             let rows = this.readFile();
             let userId = rows.find(function(elem){
-                return elem.usuario == mail})     
+                return elem.mail == mail})     
             return userId;
         },        
         findSimilares(id){

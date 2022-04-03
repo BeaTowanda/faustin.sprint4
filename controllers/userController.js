@@ -10,8 +10,7 @@ const { redirect } = require('express/lib/response');
 const userModel = modelCrud("userJson");
 // función validar Contraseña
 function validarContraseña(userID){     
-       // con idUsuario  verifica contraseña 
-    
+       // con idUsuario  verifica contraseña     
     let contraseñaGuardada = userID.contraseña;
     let contraseñaEncriptada =  bcrypt.hashSync(value, 10);
     return bcrypt.compareSync(contraseñaGuardada,contraseñaEncriptada)
@@ -27,24 +26,23 @@ const controller = {
         
         if(errors.errors.length > 0){
             res.render("login", {errorsLogin: errors.mapped()})
-        }
-        console.log(req.body.usuario + "EN LOGIN EL NOMBRE DE USUARIO ")
+        }    
         const userID =  userModel.findUser(req.body.usuario); 
-        console.log(userID + "en Login el ID encontrado")
-        if (validarContraseña) {      
-
+  
+        if (validarContraseña) {    
             if (req.body) {
             //proceso session
                 let user = {
                 //aquí
                 id: userID.id,
+                usuario :req.body.usuario,
                 primerNombre: req.body.primerNombre,
                 apellido: req.body.apellido,
                 mail: req.body.mail           
                 //avatar: userFound.avatar,
                 }
 
-                 req.session.usuarioLogueado = user
+                req.session.usuarioLogueado = user
 
                 if(req.body.recordame){
                 res.cookie("user", user.id, {maxAge: 50000 * 24})
@@ -58,7 +56,7 @@ const controller = {
     },
     
     forgot: (req,res) =>{        
-        res.render("loginOlvido")
+        res.render("loginOlvide")
     },  
     
     activarSesion: (req,res) =>{ 
@@ -75,14 +73,13 @@ const controller = {
     altaRegister: (req,res) =>{
         let errors =[];
         errors = validationResult(req); 
-        console.log(errors.errors.length + "es el length de errors")   
-        console.log(errors)   
+          
         if(errors.errors.length > 0){
            return res.render("formularioRegistro", {errorsReg: errors.mapped()})
         }      
         
         else {
-            //let fecha = date.now()
+            //let fecha = date.now() igual después usaré timesstamp
             let userAlta = {   
                 usuario: req.body.usuario,             
                 primerNombre: req.body.primerNombre,
@@ -93,11 +90,17 @@ const controller = {
                 contraseña: bcrypt.hashSync(req.body.contraseña, 10),               
                 //avatar: userFound.avatar,
             }
-            console.log(userAlta.primerNombre)
+            
             userModel.create(userAlta);
             res.redirect("/users/login")};         
     },
+    ConfirmLogout:function(req, res){
+       // usuario = session.usuarioLogueado.usuario
+       // console.log(usuario + "  es el req.session.usuario")
+        res.render("confirmaLogout")  
+    },   
     logout:function(req, res){
+
         req.session.destroy();       
         res.clearCookie("user");
         res.redirect("/");

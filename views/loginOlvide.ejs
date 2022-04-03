@@ -12,88 +12,59 @@
     <link rel="stylesheet" href="/stylesheets/login.css">
     <link rel="stylesheet" href="/stylesheets/global.css">
     <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/modalSimple.css">
 
     <title>Login</title>
 </head>
 
 <body>
-   <!--- <header class="header">
-        <div class="cointainer, logo-nav-container">
-            <div class="barra">
-                <input type="text" id="searchterm" placeholder="¿Qué estas buscando?" class="barra1" >
-
-            </div>
-            <nav class="Faustine">
-                <h3> Faustine </h3>
-            </nav>
-                <div class="logoF">
-                <img width="80" height="80" src="images/LogoFaustine-header.jpg">
-            </div>
-            <nav class="imgs">
-            <button><a href= "#"> <img width="50" height="50" src="images/usuario.jpg"></a></button>
-            <button><a href= "#"> <img width="50" height="50" src="images/logoCompras.jpg"></button></a>
-            </nav>
-        </div>
-    </header>-->
+<main>
+<div class="cuerpoLogin">    
     <%- include('partials/header') %>
-    <div class="cuerpoLogin">
-        <div class="altaProductLogo">
-            <h3>RECUPERAR CONTRASEÑA</h3>
-            <ul>      
-            <li id="altaLogo"><i class="fas fa-file-alt"></i></li>
-            <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
-            </ul>            
-        </div>
-        
-        <form action="/users/login" method="POST">
-        
-        <div class="paginaLogin">
-            
-            <!-- FALTA ARREGLAR QUE ESTÁN OTRA VEZ SEPARADOS.. VER OTRO DÍA-->
+    <h3>RECUPERAR CONTRASEÑA</h3>  
+            <div class="altaProductLogo">
+              
+                <ul>      
+                <li id="altaLogo"><i class="fas fa-user-circle"></i></i></li>
+                <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
+                </ul>            
+            </div>
+    <div class="paginaLogin">  
+        <form action="/users/olvido" method="POST">        
+         
             <div class="etiquetasDeLogin">
-                <!--<p>Puede ingresar con Nombre de Usuario o con Mail REGISTRADOS</p>-->
+              
                 <p><label class="usuario"for ="amil">Ingrese Mail Registrado</label>
                     <input placeholder="" type="text"  name="mail" class="barraDeUsuario" ></p>
                     <% if(locals.errorsOlvido && locals.errorsOlvido.mail){ %>
                         <span id="errorMsge" > <%= errorsOlvido.mail.msg  %> </span>
                       <% } %> 
                     <br/>
-               <!--- <p><label class="usuario"for ="email">EMAIL</label>
-                    <input placeholder="" type="text"  name="mail" class="barraDeUsuario" ></p>-->
-                 
-                
-        </div>
-        <div id="modal2" class="modalmask">            
-            <div class="modalbox rotate">
-                <a href="#close" title="Close" class="close">X</a>
-                <h2>OLVIDO SU CONTRASEÑA</h2>
-                <p>Le será enviado un mail a su casilla de Correo con la Contraseña
+            </div>     
+        
+            <div id="modal2" class="modalmask">            
+                <div class="modalbox rotate">
+                    <a href="#close" title="Close" class="close">X</a>
+                    <h2>OLVIDO SU CONTRASEÑA</h2>
+                    <p>Le será enviado un mail a su casilla de Correo con la Contraseña
                     Registrada para ese mail. Confirme desde su casilla y recuperará 
                     la constraseña. Luego Proceda a realizar el LOGIN 
                   </p>
                
-                 
+                 </div>
             </div>
+        </div>
         
         <div class="button">    
             <input type="submit" name="submit" class="boton1" value="Recibir Contraseña Registrada"> </input>
              <br/>         
            <p id="volver"><a href="/" class= "boton1">Volver a Pagina Principal</a></p>
-        </div>             
-        
-        <div class="cuentaYContraseña">                     
-           
-            <p>
-                <a href= "/users/register" class="linkCrearCuenta">Crea tu cuenta</a>
-            </p>
-        </div>
+        </div>            
     </div> 
 </form>  
-
-    <footer>
-        <%- include('partials/footer') %>
-       
-    </footer>
+</main>
 </body>
-
+    <footer>
+        <%- include('partials/footer') %>       
+    </footer>
 </html>

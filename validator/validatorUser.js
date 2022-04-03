@@ -90,7 +90,7 @@ const validatorU = {
             //busco al usuario
             let userFound= userModel.findMail(value);                            
             //si existe un usuario devuelvo el error
-            if(userFound == undefined){
+            if (!userFound){
                 throw new Error("Este Mail NO ESTÄ REGISTRADO en nuestra Base De Datos");
             }
             //sino devuelvo true

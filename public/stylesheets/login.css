@@ -5,10 +5,35 @@
     opacity: 70%;
    
     /*width: 1900px;*/
-    padding-bottom: 185px;  
-
-    
+    padding-bottom: 185px;         
    
+}
+.cuerpoLogin h3{
+    margin-left: 2rem;
+}
+main div.altaProductLogo{
+    display:inline-block;
+     text-align: center;
+     width: 100%;
+     margin:10px;
+     color:#3D405B;
+     list-style: none;
+    
+ }
+
+div.altaProductLogo ul li{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+#altaLogo{
+    font-size: 4rem;
+    color:black;
+}
+.altaProductLogo a{
+    font-size: 2rem;
+    color:black;
+    text-decoration: none;    
 }
 .paginaLogin {
     display: flex;
@@ -21,7 +46,7 @@
 .etiquetasDeLogin {
     display: flex;
     flex-direction: column;
-    margin-top: 200px;
+    margin-top: 80px;
 }
 
 .botonesDeLogin {
