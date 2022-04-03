@@ -1,50 +1,20 @@
 [
-    {
-     "id": 1,
-     "usuario": "Jaimito",
-     "primerNombre": "Jaime Ernesto ",
-     "apellido": "Strozersy",
-     "contraseña": "je2525m",
-     "mail": "jaimito.stk@gmail.com",
-     "avatar": "ver",
-     "fechaAlta":20220101,
-     "fechaNacimiento": 19800711
-     
-    },
-    {
-    "id": 1,
-    "usuario": "Jaimito",
-    "primerNombre": "Jaime Ernesto ",
-    "apellido": "Strozersy",
-    "contraseña": "je2525m",
-    "mail": "jaimito.stk@gmail.com",
-    "avatar": "ver",
-    "fechaAlta":20220101,
-    "fechaNacimiento": 19800711
-        
-    },
-    {
-    "id": 1,
-    "usuario": "Jaimito",
-    "primerNombre": "Jaime Ernesto ",
-    "apellido": "Strozersy",
-    "contraseña": "je2525m",
-    "mail": "jaimito.stk@gmail.com",
-    "avatar": "ver",
-    "fechaAlta":20220101,
-    "fechaNacimiento": 19800711
-        
-    },
-    {
-    "id": 1,
-    "usuario": "Jaimito",
-    "primerNombre": "Jaime Ernesto ",
-    "apellido": "Strozersy",
-    "contraseña": "je2525m",
-    "mail": "jaimito.stk@gmail.com",
-     "avatar": "ver",
-    "fechaAlta":20220101,
-    "fechaNacimiento": 19800711
-        
-    }
+ {
+  "id": 1,
+  "usuario": "Jaimito",
+  "primerNombre": "Jaime Ernesto ",
+  "apellido": "Strozersy",
+  "contraseña": "je2525m",
+  "mail": "jaimito.stk@gmail.com",
+  "avatar": "ver",
+  "fechaNacimiento": 19800711
+ },
+ {
+  "usuario": "usuarioPepe",
+  "primerNombre": "PEPE",
+  "apellido": "MEACUERDO",
+  "mail": "pepito@gmail.com",
+  "contraseña": "$2a$10$bkPbDhIdeYrDIrLn3khsMe9iTe1IPDoaJjKz9/jMrl8oxTBxc5shm",
+  "id": 2
+ }
 ]

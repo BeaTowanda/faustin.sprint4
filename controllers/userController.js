@@ -8,7 +8,15 @@ const res = require('express/lib/response');
 const { redirect } = require('express/lib/response');
 
 const userModel = modelCrud("userJson");
-
+// función validar Contraseña
+function validarContraseña(userID){     
+       // con idUsuario  verifica contraseña 
+    
+    let contraseñaGuardada = userID.contraseña;
+    let contraseñaEncriptada =  bcrypt.hashSync(value, 10);
+    return bcrypt.compareSync(contraseñaGuardada,contraseñaEncriptada)
+}
+//************************** */
 const controller = {
     
     login: (req,res) =>{        
@@ -20,28 +28,30 @@ const controller = {
         if(errors.errors.length > 0){
             res.render("login", {errorsLogin: errors.mapped()})
         }
+        console.log(req.body.usuario + "EN LOGIN EL NOMBRE DE USUARIO ")
+        const userID =  userModel.findUser(req.body.usuario); 
+        console.log(userID + "en Login el ID encontrado")
+        if (validarContraseña) {      
 
-        //const userFound =  userModel.findUser(req.body.usuario);         
-
-        if (req.body) {
+            if (req.body) {
             //proceso session
-            let user = {
+                let user = {
                 //aquí
-                id: userModel.findMail(req.body.mail),
+                id: userID.id,
                 primerNombre: req.body.primerNombre,
                 apellido: req.body.apellido,
                 mail: req.body.mail           
                 //avatar: userFound.avatar,
-            }
+                }
 
-            req.session.usuarioLogueado = user
+                 req.session.usuarioLogueado = user
 
-            if(req.body.recordame){
+                if(req.body.recordame){
                 res.cookie("user", user.id, {maxAge: 50000 * 24})
-            }
+                }
 
-            res.redirect("/")
-
+                res.redirect("/")
+        }
         }else{
             res.render("login", {errorMsg: "No se ha podido realizar REGISTRO"})
         } 
@@ -64,23 +74,27 @@ const controller = {
     },
     altaRegister: (req,res) =>{
         let errors =[];
-        errors = validationResult(req);       
+        errors = validationResult(req); 
+        console.log(errors.errors.length + "es el length de errors")   
+        console.log(errors)   
         if(errors.errors.length > 0){
            return res.render("formularioRegistro", {errorsReg: errors.mapped()})
         }      
         
         else {
-            let userAlta = {
-                id: userModel.nextId(),
+            //let fecha = date.now()
+            let userAlta = {   
+                usuario: req.body.usuario,             
                 primerNombre: req.body.primerNombre,
                 apellido: req.body.apellido,
                 mail: req.body.mail,
                 fechaNacimiento:req.body.date,
-                fechaAlta:date(),
+               // fechaAlta: fecha,
                 contraseña: bcrypt.hashSync(req.body.contraseña, 10),               
                 //avatar: userFound.avatar,
             }
-            userModel.writeFile(userAlta);
+            console.log(userAlta.primerNombre)
+            userModel.create(userAlta);
             res.redirect("/users/login")};         
     },
     logout:function(req, res){

@@ -53,9 +53,9 @@
                 <br/>
             <!--<div class="contenedorTodosLosTitulos">-->
                 <p><label id="" for ="nombre" class="todosLosTitulos">Nombre</label>
-                <input class="todosLosBotones" placeholder="" type="text"  name="nombre" ></p> 
-                <% if(locals.errorsReg && locals.errorsReg.nombre){ %>
-                    <span id="errorMsge" > <%= errorsReg.nombre.msg  %> </span>
+                <input class="todosLosBotones" placeholder="" type="text"  name="primerNombre" ></p> 
+                <% if(locals.errorsReg && locals.errorsReg.primerNombre){ %>
+                    <span id="errorMsge" > <%= errorsReg.primerNombre.msg  %> </span>
                   <% } %> 
                 <br/>   
                 
@@ -71,14 +71,7 @@
                 <% if(locals.errorsReg && locals.errorsReg.contraseña){ %>
                     <span id="errorMsge" > <%= errorsReg.contraseña.msg  %> </span>
                   <% } %> 
-                <br/>
-                
-                <p><label id="" for ="contraseñaConfirma" class="todosLosTitulos">Confirmación de Contraseña</label>
-                <input class="todosLosBotones" placeholder="" type="password"  name="contraseñaConfirma" ></p>
-                <% if(locals.errorsReg && locals.errorsReg.contraseñaConfirma){ %>
-                    <span id="errorMsge" > <%= errorsReg.contraseñaConfirma.msg  %> </span>
-                  <% } %> 
-                <br/>
+                <br/>                 
                 
                 <p><label id="" for ="email" class="todosLosTitulos">Correo Electrónico</label>
                 <input class="todosLosBotones" placeholder="" type="text" " name="mail" ></p>
@@ -121,10 +114,11 @@
                 <p>
                     <input type="email" name="confirCorreo" id="confirCorreo" class="botonDirecto">
                 </p>-->
+                
                 <p class="terYC">
                     <span>
-                        <label for="terminos">He leido y acepto los Términos y Condiciones</label>
-                        <input type="checkbox" name="terminos">
+                        <label for="terminos">He leido y acepto los Términos y Condiciones</label>                       
+                        <input type="checkbox" name="terminos" value="ok">
                    <!--- </span>
                     <span>He leido y acepto los</span><span><a href="https://www.google.com"> terminos y condiciones</a></span> -->
                 </p>

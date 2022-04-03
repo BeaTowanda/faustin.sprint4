@@ -38,7 +38,7 @@
     <%- include('partials/header') %>
     <div class="cuerpoLogin">
         
-        <form action="/users/login" method="POST">
+    <form action="/users/login" method="POST">
         
         <div class="paginaLogin">
             
@@ -56,7 +56,7 @@
                      
                     <br/>
                 <p><label class="usuario"for ="contraseña">Ingrese CONTRASEÑA</label>
-                    <input placeholder="" type="text"  name="contraseña" class="barraDeUsuario" ></p>
+                    <input placeholder="" type="password"  name="contraseña" class="barraDeUsuario" ></p>
                     <% if(locals.errorsLogin && locals.errorsLogin.contraseña){ %>
                         <span id="errorMsge" > <%= errorsLogin.contraseña.msg  %> </span>
                     <% } %> 
