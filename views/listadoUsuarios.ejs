@@ -41,7 +41,8 @@
             <br>
         <ul>
             <% for( let i = 0; i < users.length; i++ ) { %>
-            <li>
+            <li> <img id="imgAvatar" src="/images/avatars/<%= users[i].avatar %>" >
+            
             <a href="/users/detailOne/<%= users[i].id %>"><%= users[i].usuario %></a>
             </li>
             <% } %> 

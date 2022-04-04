@@ -103,7 +103,10 @@ div .cuentaYContraseña {
     transition:
         background-color, 0.3s;
 }
-
+#imgAvatar{
+    width: 5rem;
+    height: 5rem;
+}
 .usuario {
     font-size: 18px;
     margin-right: 10px;

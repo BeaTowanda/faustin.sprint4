@@ -48,6 +48,7 @@
   "fechaNacimiento": "1990-01-18",
   "categoria": "usuario",
   "contraseña": "$2a$10$3Uf3awAvJr3pUkUQtb4cRONPAOn053EOXncgJTxFe1/qKz22cfOa6",
+  "avatar": "DEFAULT.jpg",
   "id": 5
  },
  {
@@ -58,7 +59,8 @@
   "apellido": "apellidoNuevo",
   "mail": " nuevo@cambiado",
   "fechaNacimiento": "",
-  "categoria": ""
+  "categoria": "",
+  "avatar": "DEFAULT.jpg"
  },
  {
   "usuario": "usuarioEmilio",
@@ -70,5 +72,16 @@
   "contraseña": "$2a$10$hpZgyG/WqMVkij0dQWdnm.nxpYr.RA4pWUwMWxaYf4JMBB2C6QAwS",
   "avatar": "nuevo-1649108684851.png",
   "id": 7
+ },
+ {
+  "usuario": "usuarioEster",
+  "primerNombre": "ester",
+  "apellido": "campichuelo",
+  "mail": "ester@gmail.com",
+  "fechaNacimiento": "1984-10-25",
+  "categoria": "usuario",
+  "contraseña": "$2a$10$VgbFWAczCyUv7O3C/G7Dp.XszKs1zKCLgR6iAJQo70Siux1AEfSbC",
+  "avatar": "nuevo-1649114674571.png",
+  "id": 8
  }
 ]

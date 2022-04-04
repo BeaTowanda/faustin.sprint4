@@ -101,7 +101,7 @@ const controller = {
                // fechaAlta: fecha,
                //req.file ? req.file.filename : "image-default"
                 contraseña: bcrypt.hashSync(req.body.contraseña, 10),               
-                avatar: req.file ? req.file.filename : "image-default"
+                avatar: req.file ? req.file.filename :"DEFAULT.jpg"
             }
             console.log(req.body.contraseña + "es la que voy a encriptar")
             console.log(userAlta.contraseña)

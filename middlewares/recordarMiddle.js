@@ -11,7 +11,8 @@ function recordarMiddle (req, res , next){
 
         let user = {
             id: usuarioCookies.id,
-            nombre: usuarioCookies.nombre,
+           // nombre: usuarioCookies.primerNombre,
+            nombre:usuarioCookies.nombre,
             apellido: usuarioCookies.apellido,
             //avatar: usuarioCookies.avatar,
         }
