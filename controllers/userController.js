@@ -9,16 +9,15 @@ const { redirect } = require('express/lib/response');
 
 const userModel = modelCrud("userJson");
 // función validar Contraseña
-function validarContraseña(userID){     
-       // con idUsuario  verifica contraseña     
-    let contraseñaGuardada = userID.contraseña;
-    let contraseñaEncriptada =  bcrypt.hashSync(value, 10);
-    return bcrypt.compareSync(contraseñaGuardada,contraseñaEncriptada)
+function validarContraseña(userID,bodycontraseña){     
+       // con idUsuario  verifica contraseña         
+    let contraseñaGuardada = userID.contraseña;  
+    return bcrypt.compareSync(bodycontraseña,contraseñaGuardada)
 }
 //************************** */
 const controller = {
     
-    login: (req,res) =>{        
+    login: (req,res) =>{            
         res.render("login")
     }, 
     processLogin :(req,res) =>{
@@ -27,32 +26,42 @@ const controller = {
         if(errors.errors.length > 0){
             res.render("login", {errorsLogin: errors.mapped()})
         }    
-        const userID =  userModel.findUser(req.body.usuario); 
-        if ((req.body.categoria == "usuario" || req.body.categoria == "administrador") && (validarContraseña)){
-        
+        console.log("en register el req.usuario="+ req.body.usuario)
+        let userID =  userModel.findUser(req.body.usuario); 
+        //if (validarContraseña(userID)){
+       
+        let bodycontraseña= req.body.contraseña;
+      
+        let resultado= validarContraseña(userID,bodycontraseña);
+      
+        if (validarContraseña(userID,bodycontraseña)){
+           
              if (req.body) {
                 //proceso session
                 let user = {
                 //aquí
-                id: userID.id,
-                usuario :req.body.usuario,
-                primerNombre: req.body.primerNombre,
-                apellido: req.body.apellido,
-                mail: req.body.mail,
-                categoria: req.body.categoria          
-                //avatar: userFound.avatar,
-                }
+                    id: userID.id,
+                    usuario :req.body.usuario,
+                    primerNombre: req.body.primerNombre,
+                    apellido: req.body.apellido,
+                    mail: req.body.mail,
+                    fechaNacimiento:req.body.fechaNacimiento,
+                    categoria: req.body.categoria          
+                    //avatar: userFound.avatar,
+                    }
 
                 req.session.usuarioLogueado = user
+                console.log(req.session.usuarioLogueado.id)
 
                 if(req.body.recordame){
                 res.cookie("user", user.id, {maxAge: 50000 * 24})
                 }
-
-                res.redirect("/")
+                res.redirect("/");
+                
         }
         }else{
-            res.render("login", {errorMsg: "No se ha podido realizar REGISTRO"})
+            
+            res.send("Credenciales Incorrectas")
         } 
     },
     
@@ -74,28 +83,33 @@ const controller = {
     altaRegister: (req,res) =>{
         let errors =[];
         errors = validationResult(req); 
-          
+
         if(errors.errors.length > 0){
            return res.render("formularioRegistro", {errorsReg: errors.mapped()})
         }      
         
         else {
+            console.log("entró al else en alta")
             //let fecha = date.now() igual después usaré timesstamp
             let userAlta = {   
                 usuario: req.body.usuario,             
                 primerNombre: req.body.primerNombre,
                 apellido: req.body.apellido,
                 mail: req.body.mail,
-                fechaNacimiento:req.body.date,
-                categoria: "usuario",
+                fechaNacimiento:req.body.fechaNacimiento,
+                categoria: req.body.categoria,
                // fechaAlta: fecha,
+               
                 contraseña: bcrypt.hashSync(req.body.contraseña, 10),               
                 //avatar: userFound.avatar,
             }
-            
+            console.log(req.body.contraseña + "es la que voy a encriptar")
+            console.log(userAlta.contraseña)
             userModel.create(userAlta);
+            console.log("acaba de llamar al model create")
             res.redirect("/users/login")};         
     },
+    
     list:function(req, res){
         let usersFound = userModel.all();  
         console.log(usersFound) ;           
@@ -119,6 +133,7 @@ const controller = {
     storeUpdate: function(req,res){
         let id = req.params.id
         console.log(id + "  es el id a modificar estoy en detailOne")
+      
         let user = userModel.find(id); 
         console.log("en storeUpdate el usuario es :" + user.id)
         console.log("storeUpdate "+ user.usuario)

@@ -16,6 +16,7 @@ const validatorU = {
                 //busco al usuario
                 let userFound= userModel.findUser(value);                            
                 //si existe un usuario devuelvo el error
+               
                 if(userFound == undefined){
                     throw new Error("Usuario Inexistente");
                 }
@@ -34,6 +35,7 @@ const validatorU = {
         .bail()
         .custom(function(value){  
             //busco al usuario
+            console.log("el valor del custom es value = "+ value)
             let userFound = userModel.findUser(value);                            
             //si existe un usuario devuelvo el error
             if(userFound){
@@ -77,7 +79,19 @@ const validatorU = {
         .isDate().withMessage('Fecha Incorrecta '),
         // falta que sea mayor de edad buscar la función que dió AXEL
         check('categoria')
-        .notEmpty().withMessage ("Debe ingresar Categoría "),        
+        .notEmpty().withMessage ("Debe ingresar Categoría ")
+        .bail()
+        .custom(function(value){  
+            //valores posibles usuario/administrador                         
+            //si existe un usuario devuelvo el error
+            console.log("el valor custom-categoria es :" + value)
+            if ((value !== "usuario") && (value !== "administador")){
+                throw new Error("Categoría debe ser :usuario o administrador");
+            }
+            //sino devuelvo true
+            return true
+        }), 
+
         check('terminos')
         .notEmpty().withMessage('Debe aceptar Términos y condiciones ')
 
@@ -118,7 +132,8 @@ const validatorU = {
         .bail()
         .isDate().withMessage('Fecha Incorrecta '),
         // falta que sea mayor de edad buscar la función que dió AXEL
-       
+        check('categoria')
+        .notEmpty().withMessage ("Debe ingresar Categoría( usuario/administrador) ")
     ],
     olvidoV :[
         check('mail') 
@@ -137,6 +152,17 @@ const validatorU = {
             return true
         })
 
+    ],
+    cambio :[
+        check('contraseña1') 
+        .notEmpty().withMessage("Complete CONTRASEÑA")         
+        .bail()
+        .isLength({min:5}).withMessage('Contraseña debe ser mínimo 5 caracteres'),
+        check('contraseña2') 
+        .notEmpty().withMessage("Debe reconfirmar Contraseña")         
+        .bail()
+        .isLength({min:5}).withMessage('Contraseña debe ser mínimo 5 caracteres')   
+        
     ]
 }
 

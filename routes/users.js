@@ -14,6 +14,9 @@ router.post("/register",validatorU.register,userController.altaRegister);
 //* si se olvidó la contraseña ( ver )
 router.get("/olvido",userController.forgot)
 router.post("/olvido",validatorU.olvidoV,userController.activarSesion)
+//*cambiar contraseña
+//router.get("/cambio/:id",userController.cambioPass)
+//router.post("/cambio/:id",validatorU.cambio,userController.regCambioPass)
 
 router.get("/borrar",userController.baja)
 router.post("/borrar",validatorU.olvidoV,userController.delete)

@@ -29,6 +29,7 @@ let model = function (tableName){
         },
         find(id) {
             let rows = this.readFile();
+           
             let row = rows.find(function(elem){
                 return elem.id == id
             });
@@ -42,9 +43,12 @@ let model = function (tableName){
             return product;
         },
         findUser(nomUsuario) {
+            console.log("está en findUser")
+            console.log("nomUsuario = "+ nomUsuario)
             let rows = this.readFile();
             let userId = rows.find(function(elem){
-                return elem.usuario == nomUsuario})     
+                return elem.usuario == nomUsuario}) ; 
+            console.log("en findUser:" + userId.id)            
             return userId;
         }, 
         findMail(mail) {

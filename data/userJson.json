@@ -6,34 +6,58 @@
   "apellido": "Strozersy",
   "contraseña": "je2525m",
   "mail": "jaimito.stk@gmail.com",
+  "categoria": "usuario",
   "avatar": "ver",
   "fechaNacimiento": 19800711
  },
  {
-  "usuario": "usuarioCarlos",
-  "primerNombre": "carlos",
-  "apellido": "estevez",
-  "mail": "carlos@gmail.com",
-  "contraseña": "$2a$10$JkiqKQ1dL4WhV/HbTf8auenzMvgcHVnWxQdXnvfqYpe/a6W0AijRi",
+  "usuario": "usuarioFederico",
+  "primerNombre": "federico",
+  "apellido": "tetaz",
+  "mail": "tetaz@gmail.com",
+  "fechaNacimiento": "1988-01-07",
   "categoria": "usuario",
+  "contraseña": "$2a$10$7S4s4B8J4YR3CzyeTWBdIOX7xTiiyJnJF7J4ts4B.loDApHLE7DEi",
+  "id": 2
+ },
+ {
+  "usuario": "usuarioPerfecto",
+  "primerNombre": "perfecto",
+  "apellido": "esalisto",
+  "mail": "perfecto@gmail.com",
+  "fechaNacimiento": "1983-02-23",
+  "categoria": "usuario",
+  "contraseña": "$2a$10$508umKxQePulIsW9IzTDuOiTs3q1jxr6ivfynL3pVBwiwV/jWXIXS",
   "id": 3
  },
  {
-  "usuario": "usuarioLucia",
-  "primerNombre": "Lucia",
-  "apellido": "Ochoa",
-  "mail": "lucia@yahoo.com.ar",
+  "usuario": "usuarioAhoraSI",
+  "primerNombre": "ahora",
+  "apellido": "apellidoSi",
+  "mail": "ahoraSI@gmail.com",
+  "fechaNacimiento": "1985-02-11",
   "categoria": "usuario",
-  "contraseña": "$2a$10$HZGSNLf3tRG6OvBHWlmgC.t6vjiMjKhBj7NztoC0dForQ7l8hwXYW",
+  "contraseña": "$2a$10$lNRfq4Jb0o1YHTmXcAN9iO2gYkde/Mn4iN0FaBBUGPBQ3g1LSHJjS",
   "id": 4
  },
  {
-  "usuario": "usuarioTeresa",
-  "primerNombre": "Teresa",
-  "apellido": "Malvadisco",
-  "mail": "teresa@gmail.com",
+  "usuario": "usuarioControla",
+  "primerNombre": "controla",
+  "apellido": "errores",
+  "mail": "errores@gmail.com",
+  "fechaNacimiento": "1990-01-18",
   "categoria": "usuario",
-  "contraseña": "$2a$10$d4GatzHVwx08r2Sg3DUvJ.EfqNt9Kzev818SlS3RpG6VsQ3QdxjOO",
+  "contraseña": "$2a$10$3Uf3awAvJr3pUkUQtb4cRONPAOn053EOXncgJTxFe1/qKz22cfOa6",
   "id": 5
+ },
+ {
+  "id": 6,
+  "usuario": "usuarioNUEVO",
+  "contraseña": "$2a$10$pD/Fmi/u/U7dX3brehcqkOxpoo/Acryc27gsMB8.W9resv1QUtEGi",
+  "primerNombre": "bello",
+  "apellido": "apellidoNuevo",
+  "mail": " nuevo@cambiado",
+  "fechaNacimiento": "",
+  "categoria": ""
  }
 ]

@@ -52,7 +52,7 @@
         <div class="paginaLogin">
 
     <section class="formularioParaRegistro">   
-        <form action="/users/updateOne/:<%= user.id %>" method="POST" >             
+        <form action="/users/updateOne/<%= user.id %>" method="POST" >             
             <!--<div class="contenedorTodosLosTitulos">-->
                 <p><label id="" for ="nombre" class="todosLosTitulos">Nombre</label>
                 <input class="todosLosBotones" placeholder="" type="text"  name="primerNombre" value="<%= user.primerNombre %>"></p> 
@@ -78,13 +78,13 @@
                     <input class="todosLosBotones" type="file" name="avatar" id="archivo" accept=".png, .jpeg, .jpg, .gif" sytle="display:none"> </p>
                 
                 <p><label id="" for="fechaNacimiento">Fecha de Nacimiento</label>
-                    <input class="todosLosBotones" type="date" name="fechaNacimiento" id="archivo" value ="<% user.fechaNacimiento%>"> </p>
+                    <input class="todosLosBotones" type="date" name="fechaNacimiento" id="archivo" value ="<% user.fechaNacimiento %>"> </p>
                 <% if(locals.errorsUp && locals.errorsUp.fechaNacimiento){ %>
                     <span id="errorMsge" > <%= errorsUp.fechaNacimiento.msg  %> </span>
                  <% } %> 
                     <br/> 
                 <p><label id="" for="categoria">Categoria</label>
-                    <input class="todosLosBotones" type="text" name="categoria" id="archivo" value ="<% user.categoria%>"> </p>
+                    <input class="todosLosBotones" type="text" name="categoria" id="archivo" value ="<% user.categoria %>"> </p>
                 <% if(locals.errorsUp && locals.errorsUp.categoria){ %>
                     <span id="errorMsge" > <%= errorsUp.categoria.msg  %> </span>
                 <% } %> 

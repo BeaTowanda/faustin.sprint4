@@ -31,16 +31,7 @@
     </header>-->
     <header>
         <%- include('partials/header') %>
-    </header>
-    <section class="errores">
-        <% if(typeof errors!='undefined'){ %>
-            <ul>
-              <% for (let i=0; i < errors.length; i++) { %>
-                  <li style="color: red;"><%= errors[i].msg %> </li>
-              <% } %>
-            </ul>
-        <% } %>
-    </section>
+    </header>    
 
     <section class="formularioParaRegistro">
         
@@ -90,8 +81,8 @@
                     <br/>
                 <p><label id="" for="categoria">Categoria</label>
                     <input class="todosLosBotones" type="text" name="categoria" id="archivo"> </p>
-                <% if(locals.errorsReg && locals.errorsReg.fechaNacimiento){ %>
-                    <span id="errorMsge" > <%= errorsReg.fechaNacimiento.msg  %> </span>
+                <% if(locals.errorsReg && locals.errorsReg.categoria){ %>
+                    <span id="errorMsge" > <%= errorsReg.categoria.msg  %> </span>
                 <% } %> 
                      <br/> 
                
