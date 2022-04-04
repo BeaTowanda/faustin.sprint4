@@ -91,7 +91,6 @@ const validatorU = {
             //sino devuelvo true
             return true
         }), 
-
         check('terminos')
         .notEmpty().withMessage('Debe aceptar Términos y condiciones ')
 

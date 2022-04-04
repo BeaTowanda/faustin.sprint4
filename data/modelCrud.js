@@ -48,7 +48,7 @@ let model = function (tableName){
             let rows = this.readFile();
             let userId = rows.find(function(elem){
                 return elem.usuario == nomUsuario}) ; 
-            console.log("en findUser:" + userId.id)            
+                       
             return userId;
         }, 
         findMail(mail) {

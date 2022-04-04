@@ -83,7 +83,7 @@ const controller = {
     altaRegister: (req,res) =>{
         let errors =[];
         errors = validationResult(req); 
-
+        console.log(errors.errors.length + "errores length")
         if(errors.errors.length > 0){
            return res.render("formularioRegistro", {errorsReg: errors.mapped()})
         }      
@@ -99,9 +99,9 @@ const controller = {
                 fechaNacimiento:req.body.fechaNacimiento,
                 categoria: req.body.categoria,
                // fechaAlta: fecha,
-               
+               //req.file ? req.file.filename : "image-default"
                 contraseña: bcrypt.hashSync(req.body.contraseña, 10),               
-                //avatar: userFound.avatar,
+                avatar: req.file ? req.file.filename : "image-default"
             }
             console.log(req.body.contraseña + "es la que voy a encriptar")
             console.log(userAlta.contraseña)

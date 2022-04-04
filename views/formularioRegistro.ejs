@@ -35,7 +35,7 @@
 
     <section class="formularioParaRegistro">
         
-        <form action="/users/register" method="POST" >
+        <form action="/users/register" enctype="multipart/form-data" method="POST" >
             <p><label id="" for ="usuario" class="todosLosTitulos">Usuario</label>
                 <input class="todosLosBotones" placeholder="" type="text"  name="usuario" ></p>
                 <% if(locals.errorsReg && locals.errorsReg.usuario){ %>
