@@ -8,6 +8,7 @@ const res = require('express/lib/response');
 
 /*let tableName = fs.readFileSync(path.join(__dirname, "../data/productos.json"), "utf-8") */ 
 const productModel = modelCrud("productos");  
+const userModel = modelCrud("userJson");
 
 const controller = {
     detail: (req, res) => {
@@ -30,7 +31,9 @@ const controller = {
         console.log(filtrados)          
         res.render("detallProdNuevo",{producto,filtrados,fin});
     },
-   
+    /*irCarrito: (req,res) => {
+        res.render("irCarrito")
+    },*/
     carrito: (req,res) => {
         res.render("carritoDeCompras")
     },
@@ -94,21 +97,14 @@ const controller = {
             productModel.delete(id); 
             res.send("baja existosa")
     },   
-    altaP: (req,res) => {
-        res.render("altaProducto")
+    altaP: (req,res) => {        
+        let autorizacion = userModel.find(req.session.usuarioLogueado.id)       
+        if (autorizacion.categoria !== "administrador"){
+            res.send("NO ESTÁ AUTORIZADO A REALIZAR ESTA OPERACIÓN")
+        } 
+        else{res.render("altaProducto")}
     },   
-    storeAlta: (req,res) =>{
-        console.log("body name es " + req.body.name)
-        console.log("body de coleccion "+ req.body.colection)
-        console.log("body de description : "+ req.body.description)
-        console.log("body de descri 2 : "+ req.body.description2)
-        console.log("body de anio " + req.body.anio)
-        console.log("body de color" + req.body.color)
-        console.log("body price es " + req.body.price)
-        console.log("body de tipo "+ req.body.tipo)
-        console.log("body de canitdad " + req.body.cantidad)
-        console.log("body de color" + req.body.color)
-        console.log("body de colection" + req.body.colection)
+    storeAlta: (req,res) =>{        
 
         const errors = validationResult(req);        
         console.log("la lenght de errores es : " + errors.errors.length)

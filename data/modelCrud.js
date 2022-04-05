@@ -28,6 +28,7 @@ let model = function (tableName){
             return this.readFile();
         },
         find(id) {
+            
             let rows = this.readFile();
            
             let row = rows.find(function(elem){

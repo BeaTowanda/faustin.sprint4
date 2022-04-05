@@ -51,7 +51,7 @@ const controller = {
                     }
 
                 req.session.usuarioLogueado = user
-                console.log(req.session.usuarioLogueado.id)
+                console.log("en alta P.usuarioLogueado" + req.session.usuarioLogueado)
 
                 if(req.body.recordame){
                 res.cookie("user", user.id, {maxAge: 50000 * 24})

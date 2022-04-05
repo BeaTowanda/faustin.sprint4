@@ -85,7 +85,7 @@ const validatorU = {
             //valores posibles usuario/administrador                         
             //si existe un usuario devuelvo el error
             console.log("el valor custom-categoria es :" + value)
-            if ((value !== "usuario") && (value !== "administador")){
+            if ((value !== "usuario") && (value !== "administrador")){
                 throw new Error("Categoría debe ser :usuario o administrador");
             }
             //sino devuelvo true
