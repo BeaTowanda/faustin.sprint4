@@ -174,13 +174,14 @@ const controller = {
     ConfirmLogout:function(req, res){
         // usuario = session.usuarioLogueado.usuario
         // console.log(usuario + "  es el req.session.usuario")
-         res.render("confirmaLogout")  
+        // res.render("confirmaLogout")  
+        res.send("LOGOUT EN CONSTRUCCIÓN ")
      },          
     logout:function(req, res){
-
-        req.session.destroy();       
-        res.clearCookie("user");
-        res.redirect("/");
+        res.send("LOGOUT EN CONSTRUCCIÓN ")
+        //req.session.destroy();       
+        //res.clearCookie("user");
+        //res.redirect("/");
     }
 };
 
