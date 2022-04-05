@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const path = require('path');
+const authMiddle = require("../middlewares/authMiddle.js");
 
 const userController = require("../controllers/userController")
 const {body, check} = require('express-validator')
@@ -30,11 +31,13 @@ router.post("/olvido",validatorU.olvidoV,userController.activarSesion)
 //*cambiar contraseña
 //router.get("/cambio/:id",userController.cambioPass)
 //router.post("/cambio/:id",validatorU.cambio,userController.regCambioPass)
+//
+
 
 router.get("/borrar",userController.baja)
 router.post("/borrar",validatorU.olvidoV,userController.delete)
 
-router.get("/listUsuarios",userController.list);
+router.get("/listUsuarios",authMiddle,userController.list);
 router.get("/detailOne/:id",userController.detailOne)
 router.post("/updateOne/:id",validatorU.updateUser,userController.storeUpdate)
 //

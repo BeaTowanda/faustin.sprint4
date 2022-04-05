@@ -111,9 +111,13 @@ const controller = {
     },
     
     list:function(req, res){
-        let usersFound = userModel.all();  
+        let autorizacion = userModel.find(req.session.usuarioLogueado.id)       
+        if (autorizacion.categoria !== "administrador"){
+            res.send("NO ESTÁ AUTORIZADO A REALIZAR ESTA OPERACIÓN")
+        } 
+        else {let usersFound = userModel.all();  
         console.log(usersFound) ;           
-        res.render("listadoUsuarios",{users:usersFound});
+        res.render("listadoUsuarios",{users:usersFound}); }
     } ,   
     detailOne:function(req, res){
         let errors =[];
