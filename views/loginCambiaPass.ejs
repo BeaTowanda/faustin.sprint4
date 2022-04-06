@@ -30,38 +30,38 @@
                 </ul>            
             </div>
     <div class="paginaLogin">  
-        <form action="/users/olvido" method="POST">        
+        <form action="/users/cambioPass/<&= user.id %>" method="POST">        
          
             <div class="etiquetasDeLogin">
               
                 <p><label class="usuario"for ="contraseña1">Ingrese NUEVA CONTRASEÑA</label>
-                    <input placeholder="" type="text"  name="contraseña1" class="barraDeUsuario" ></p>
-                    <% if(locals.errorsCambio && locals.errorsCambio.contraseña1){ %>
-                        <span id="errorMsge" > <%= errorsCambio.contraseña1.msg  %> </span>
+                    <input placeholder="" type="password"  name="contraseña1" class="barraDeUsuario" ></p>
+                    <% if(locals.errorsCambioP && locals.errorsCambioP.contraseña1){ %>
+                        <span id="errorMsge" > <%= errorsCambioP.contraseña1.msg  %> </span>
                       <% } %> 
                     <br/>
                     <p><label class="usuario"for ="contraseña2">CONFIRME contraseña Ingresada</label>
-                        <input placeholder="" type="text"  name="contraseña2" class="barraDeUsuario" ></p>
-                        <% if(locals.errorsCambio && locals.errorsCambio.contraseña2){ %>
-                            <span id="errorMsge" > <%= errorsCambio.contraseña2.msg  %> </span>
+                        <input placeholder="" type="password"  name="contraseña2" class="barraDeUsuario" ></p>
+                        <% if(locals.errorsCambioP && locals.errorsCambioP.contraseña2){ %>
+                            <span id="errorMsge" > <%= errorsCambioP.contraseña2.msg  %> </span>
                           <% } %> 
                         <br/>
             </div>     
         
-            <div id="modal2" class="modalmask">            
-                <div class="modalbox rotate">
-                    <a href="#close" title="Close" class="close">X</a>
-                    <h2>MODIFICAR CONTRASEÑA</h2>
-                    <p>Recuerde que para MODIFICAR SU CONTRASEÑA ud. deberá
-                        estar PREVIAMENTE LOGUEADO en la página  
-                  </p>
-               
-                 </div>
-            </div>
+            
         </div>
-        
+        <div id="modal2" class="modalmask">            
+            <div class="modalbox rotate">
+                <a href="#close" title="Close" class="close">X</a>
+                <h2>MODIFICAR SU CONTRASEÑA</h2>
+                <p>Debe registrarse ANTES DE modificar su CONTRASEÑA-
+                Si no recuerda contraseña puede solicitar RECUPERAR CONTRASEÑA 
+              </p>
+           
+             </div>
+        </div> 
         <div class="button">    
-            <input type="submit" name="submit" class="boton1" value="ACTUALIAR Contraseña Registrada"> </input>
+            <input type="submit" name="submit" class="boton1" value="ACTUALIAR CONTRASEÑA"> </input>
              <br/>         
            <p id="volver"><a href="/" class= "boton1">Volver a Pagina Principal</a></p>
         </div>            

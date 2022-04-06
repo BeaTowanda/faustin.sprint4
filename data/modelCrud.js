@@ -28,7 +28,7 @@ let model = function (tableName){
             return this.readFile();
         },
         find(id) {
-            
+            console.log("está en find del model y el id = " + id)
             let rows = this.readFile();
            
             let row = rows.find(function(elem){
@@ -78,9 +78,7 @@ let model = function (tableName){
             return row.id;
         },
         update(row) {
-            let rows = this.readFile();
-            console.log(row.id + " es id en update DE MODEL ")
-            console.log(row.name + " es nombre update DE MODEL ")
+            let rows = this.readFile();          
             let updatedRows = rows.map(oneRow => {
                 if (oneRow.id == row.id) {
                     return row;

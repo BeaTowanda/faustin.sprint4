@@ -152,7 +152,7 @@ const validatorU = {
         })
 
     ],
-    cambio :[
+    cambioP :[
         check('contraseña1') 
         .notEmpty().withMessage("Complete CONTRASEÑA")         
         .bail()

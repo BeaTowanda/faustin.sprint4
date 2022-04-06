@@ -29,8 +29,10 @@ router.post("/register", upload.single("avatar"),validatorU.register,userControl
 router.get("/olvido",userController.forgot)
 router.post("/olvido",validatorU.olvidoV,userController.activarSesion)
 //*cambiar contraseña
-//router.get("/cambio/:id",userController.cambioPass)
-//router.post("/cambio/:id",validatorU.cambio,userController.regCambioPass)
+router.get("/cambio",userController.cambioPass)
+router.post("/cambio",validatorU.login,userController.processLoginCambio)
+router.post("/cambioPass/:id",validatorU.cambioP,userController.processCambioP)
+
 //
 
 

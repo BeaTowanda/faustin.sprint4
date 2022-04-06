@@ -106,7 +106,7 @@ const controller = {
             console.log(req.body.contraseña + "es la que voy a encriptar")
             console.log(userAlta.contraseña)
             userModel.create(userAlta);
-            console.log("acaba de llamar al model create")
+        
             res.redirect("/users/login")};         
     },
     
@@ -171,6 +171,89 @@ const controller = {
         res.redirect("/")        
        
     }, 
+    cambioPass: (req,res) =>{
+        res.render("loginIrCambioPass")
+    },
+    processLoginCambio :(req,res) =>{
+        /***** todo igual a LOGIN pero MANDA A PAGINA DE CAMBIAR CONTRASEÑA  */
+        const errors = validationResult(req);        
+        
+        if(errors.errors.length > 0) {
+            res.render("loginIrCambioPass", {errorsLogin: errors.mapped()})
+        }  
+        
+     
+        let userID =  userModel.findUser(req.body.usuario); 
+        //if (validarContraseña(userID)){
+       
+        let bodycontraseña= req.body.contraseña;
+      
+        let resultado= validarContraseña(userID,bodycontraseña);
+      
+        if (validarContraseña(userID,bodycontraseña)){
+           
+             if (req.body) {
+                //proceso session
+                let user = {
+                //aquí
+                    id: userID.id,
+                    usuario :req.body.usuario,
+                    primerNombre: req.body.primerNombre,
+                    apellido: req.body.apellido,
+                    mail: req.body.mail,
+                    fechaNacimiento:req.body.fechaNacimiento,
+                    categoria: req.body.categoria,          
+                    //avatar: .avatar
+                    }
+
+                req.session.usuarioLogueado = user
+                
+                if(req.body.recordame){
+                res.cookie("user", user.id, {maxAge: 50000 * 24})
+                }
+              
+                res.render("loginCambiaPass",{user:user});
+                
+        }
+        }else{
+            
+            res.send("Credenciales Incorrectas")
+        } 
+    },
+    processCambioP: (req,res) =>{
+        const errors = validationResult(req);        
+        
+        if(errors.errors.length > 0){
+            res.render("loginCambiaPass", {errorsLogin: errors.mapped()})
+        } 
+        else { 
+            if( req.body.contraseña1 !== req.body.contraseña2 ){
+            res.send ("contraseñas Ingresadas SON DISTINTAS ")
+        } ;} ;
+        console.log(req.session.usuarioLogueado.id + "  es  el ID")
+        let userID =  userModel.find(req.session.usuarioLogueado.id); 
+        if ((userID) && (validarContraseña(userID,req.body.contraseña1)) ){
+           
+                res.send("NUEVA CONTRASEÑA debe ser DIFERENTE a la registrada")
+            }
+            else {
+                let user = {
+                    //aquí
+                        id: userID.id,
+                        usuario :userID.usuario,
+                        primerNombre: userID.primerNombre,
+                        apellido: userID.apellido,
+                        mail: userID.mail,
+                        fechaNacimiento:userID.fechaNacimiento,
+                        categoria: userID.categoria, 
+                        contraseña : bcrypt.hashSync(req.body.contraseña1, 10),         
+                        avatar: userID.avatar
+                        }
+                 userModel.update(user) 
+                 res.redirect("/") 
+            } ;        
+    },   
+    
     ConfirmLogout:function(req, res){
         // usuario = session.usuarioLogueado.usuario
         // console.log(usuario + "  es el req.session.usuario")
